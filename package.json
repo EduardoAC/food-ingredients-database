@@ -1,0 +1,54 @@
+{
+  "name": "food-ingredients-database",
+  "version": "1.0.0",
+  "description": "An open food ingredients and nutrition database for developers. Includes detailed ingredient data, calories, and nutritional values — perfect for building recipe apps, meal planners, calorie calculators, and health tracking applications.",
+  "keywords": [
+    "food",
+    "ingredients",
+    "nutrition",
+    "database",
+    "recipes",
+    "recipe-app",
+    "meal",
+    "planner",
+    "meal",
+    "planning",
+    "calorie",
+    "calculator",
+    "calories",
+    "health",
+    "apps",
+    "diet",
+    "diet",
+    "tracker",
+    "nutrition",
+    "data",
+    "nutrition",
+    "facts",
+    "food",
+    "database",
+    "food",
+    "ingredients",
+    "open",
+    "food",
+    "food",
+    "tracker",
+    "health",
+    "planner"
+  ],
+  "homepage": "https://github.com/EduardoAC/food-ingredients-database#readme",
+  "bugs": {
+    "url": "https://github.com/EduardoAC/food-ingredients-database/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoAC/food-ingredients-database.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Eduardo Aparicio Cardenes",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
