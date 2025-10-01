@@ -16,22 +16,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "sync:foods": "node ./src/syncFoods.ts",
     "build": "rollup --config",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:api": "orval"
   },
   "devDependencies": {
     "@eslint/css": "^0.11.1",
     "@eslint/js": "^9.36.0",
     "@eslint/json": "^0.13.2",
     "@eslint/markdown": "^7.3.0",
+    "@orval/core": "7.12.2",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@rollup/plugin-replace": "6.0.2",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "12.1.4",
+    "dotenv": "17.2.2",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "jiti": "^2.6.0",
+    "orval": "7.12.2",
     "prettier": "3.6.2",
     "rollup": "^4.52.3",
     "rollup-plugin-delete": "3.0.1",
@@ -71,5 +76,9 @@
     "tracker",
     "health",
     "planner"
-  ]
+  ],
+  "dependencies": {
+    "@faker-js/faker": "10.0.0",
+    "msw": "2.11.3"
+  }
 }

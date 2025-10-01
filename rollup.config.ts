@@ -1,10 +1,18 @@
 import { defineConfig } from "rollup";
-import { dts } from "rollup-plugin-dts";
+import dotenv from 'dotenv';
 import del from "rollup-plugin-delete";
+import { dts } from "rollup-plugin-dts";
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import replace from '@rollup/plugin-replace';
+
+dotenv.config();
+
+const envReplacements = {
+  preventAssignment: true,
+  'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+};
 
 export default defineConfig([
   {
@@ -29,10 +37,7 @@ export default defineConfig([
     ],
     plugins: [
       del({ targets: "dist/*", hook: "buildStart" }),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-        preventAssignment: true,
-      }),
+      replace(envReplacements),
       resolve({
         browser: true,
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -48,11 +53,37 @@ export default defineConfig([
     ],
   },
   {
-    input: "dist/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
+    input: 'src/syncFoods.ts',
+    output: [
+      {
+        file: 'dist/syncFoods.esm.js',
+        format: "esm",
+        sourcemap: true,
+      },
+    ],
     plugins: [
-      dts(),
-      del({ hook: "buildEnd", targets: "dist/types", verbose: true }),
+      del({ targets: "dist/*", hook: "buildStart" }),
+      replace(envReplacements),
+      resolve({
+        browser: true,
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
+      typescript({
+        tsconfig: './tsconfig.json'      // Use this tsconfig file to configure TypeScript compilation
+      }),
+      terser()
+    ],
+    external: [
+      "react",
+      "@tanstack/react-query",
     ],
   },
+  // {
+  //   input: "dist/types/index.d.ts",
+  //   output: [{ file: "dist/index.d.ts", format: "es" }],
+  //   plugins: [
+  //     dts(),
+  //     del({ hook: "buildEnd", targets: "dist/types", verbose: true }),
+  //   ],
+  // },
 ]);

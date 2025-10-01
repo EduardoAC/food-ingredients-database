@@ -1,0 +1,2 @@
+database/*.json filter=lfs diff=lfs merge=lfs -text
+database/foods.json filter=lfs diff=lfs merge=lfs -text

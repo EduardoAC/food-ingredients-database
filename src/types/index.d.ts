@@ -1,3 +1,3 @@
-interface Data {
-  tst: number;
+interface GetFoodsListParams {
+  API_KEY: string;
 }
