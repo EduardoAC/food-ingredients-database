@@ -1,60 +1,39 @@
-// src/syncFoods.ts
-import fs from 'fs/promises';
-import { getFoodsList, AbridgedFoodItem } from '.';
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import {
+  createFdcDataSourceAdapter,
+  createJsonDatabaseAdapter,
+  FoodSyncOptions,
+  syncFoodsWithDefaults
+} from './sync'
 
-const DATA_FILE = './database/foods.json';
+const DEFAULT_PAGE_SIZE = 200
+const DEFAULT_THROTTLE_MS = 1_500
 
-async function delay(ms: number) {
-  return new Promise((res) => setTimeout(res, ms));
+export async function syncFoods(options: FoodSyncOptions = {}) {
+  const dataSource = createFdcDataSourceAdapter()
+  const database = createJsonDatabaseAdapter()
+
+  return syncFoodsWithDefaults(dataSource, database, {
+    pageSize: options.pageSize ?? DEFAULT_PAGE_SIZE,
+    throttleMs: options.throttleMs ?? DEFAULT_THROTTLE_MS,
+    logger: options.logger ?? console
+  })
 }
 
-async function loadLocalData(): Promise<AbridgedFoodItem[]> {
-  try {
-    return JSON.parse(await fs.readFile(DATA_FILE, 'utf-8'));
-  } catch {
-    return [];
+function isExecutedDirectly() {
+  if (typeof process === 'undefined' || !process.argv?.[1]) {
+    return false
   }
+
+  const currentFile = fileURLToPath(import.meta.url)
+  const entryFile = path.resolve(process.argv[1])
+  return currentFile === entryFile
 }
 
-async function saveLocalData(data: AbridgedFoodItem[]) {
-  await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
+if (isExecutedDirectly()) {
+  syncFoods().catch((error) => {
+    console.error('[sync] Failed to synchronize foods', error)
+    process.exitCode = 1
+  })
 }
-
-export async function syncFoods() {
-  const localData = await loadLocalData();
-  const maxExistingId = Math.max(0, ...localData.map((f) => f.fdcId));
-
-  let page = 1;
-  let totalNew = 0;
-
-  while (page < 200) {
-    console.log(`Fetching page ${page}`);
-    const foodListResponse = await getFoodsList({
-      pageNumber: page,
-      pageSize: 200,
-    });
-
-    const foods = foodListResponse.data;
-
-
-    if (!foods || foods.length === 0) break;
-
-    const fresh = foods.filter((f) => f.fdcId > maxExistingId);
-
-    if (fresh.length > 0) {
-      localData.push(...fresh);
-      totalNew += fresh.length;
-
-      // ✅ Save after every page
-      await saveLocalData(localData);
-      console.log(`Saved ${fresh.length} new foods (total new so far: ${totalNew})`);
-    }
-
-    if (foods.length < 200) break;
-    page++;
-
-    await delay(1500); // stay under 1000 req/hr
-  }
-}
-
-syncFoods();
