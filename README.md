@@ -98,11 +98,6 @@ database/fdc/
   sync-state.json   // Per-provider sync metadata
 ```
 
-## Development Notes
-- Rollup builds ESM + CJS bundles plus a runnable CLI binary (`food-ingredients`).
-- `BUILD_MINIFY=false npm run build` avoids terser issues during local builds.
-- Keep shard size manageable (default 500 items) to minimise diff noise.
-
 ## Roadmap
 - Additional data source adapters (OpenFoodFacts, etc.).
 - Alternative persistence drivers (SQLite, mobile storage).
