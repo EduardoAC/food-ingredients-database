@@ -8,7 +8,7 @@ import {
 } from './sync'
 
 const DEFAULT_PAGE_SIZE = 200
-const DEFAULT_THROTTLE_MS = 1_500
+const DEFAULT_THROTTLE_MS = 1500
 
 export async function syncFoods(options: FoodSyncOptions = {}) {
   const dataSource = createFdcDataSourceAdapter()
