@@ -2,8 +2,9 @@
 
 ## Project Principles
 - TypeScript-first, ESM codebase. Ensure CommonJS entry points remain via Rollup build.
-- Domain model centers on `FoodItem` and `NutrientProfile` abstractions. Treat generated FDC types as external DTOs.
+- Domain model is defined via `FoodRecord`/`NutrientRecord` in `src/sync/ports.ts`; treat generated FDC types as external DTOs.
 - Package must remain database-agnostic. Introduce new persistence layers via the adapter interfaces under `src/sync`.
+- Local-first persistence currently uses the sharded JSON adapter (`database/fdc`). Avoid touching shard files manually; rely on the adapter helpers.
 
 ## Development Workflow
 - Feature work should originate from dedicated branches. Keep commits scoped and descriptive.
@@ -15,15 +16,16 @@
 - Provide request/response fixtures under `tests/fixtures`. Keep mocked network interactions consistent with USDA FDC schema.
 
 ## CLI Expectations
-- All CLI entry points live under `src/cli` and leverage `stricli` for command composition.
-- Sync commands must offer interactive prompts and background refresh options.
+- All CLI entry points live under `src/cli` and leverage `@stricli/core` for command composition.
+- Available commands: `sync init`, `sync run`, `sync status`, `search`. All accept `--dataDir` to target custom shard roots.
+- Sync defaults to the FDC adapter and sharded JSON persistence; background refresh hooks are still TODO.
 
 ## Sync Architecture
 - Orchestrators coordinate `DataSourceAdapter` (third-party fetch) and `LocalDatabaseAdapter` (persistence).
-- Each third-party integration belongs in `src/sync/adapters/<provider>` and must export a factory returning the shared adapter interface.
-- Do not access `fs` directly outside persistence adapters.
+- Each third-party integration lives in `src/sync/adapters/<provider>` and must export a factory returning the shared adapter interface.
+- JSON shard adapter (`src/sync/adapters/jsonShardedDatabaseAdapter.ts`) is the preferred local store; keep any new persistence logic behind the interface.
+- Shard files should remain small (<500 items). Adjust `shardSize` via adapter options if needed.
 
 ## Release & Distribution
 - Rollup config should emit ESM + CJS bundles. Validate type declarations with `rollup-plugin-dts` before release.
 - Keep exports curated via `src/index.ts`. Public surface API changes require a `CHANGELOG` entry.
-
