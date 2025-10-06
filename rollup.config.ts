@@ -69,10 +69,7 @@ export default defineConfig([
         sourcemap: true
       }
     ],
-    plugins: [
-      del({ targets: 'dist/*', hook: 'buildStart' }),
-      ...createSharedPlugins()
-    ],
+    plugins: [del({ targets: 'dist/*', hook: 'buildStart' }), ...createSharedPlugins()],
     external: [
       "react",
       "@tanstack/react-query",
@@ -87,14 +84,26 @@ export default defineConfig([
         sourcemap: true,
       },
     ],
-    plugins: [
-      del({ targets: 'dist/*', hook: 'buildStart' }),
-      ...createSharedPlugins()
-    ],
+    plugins: [...createSharedPlugins()],
     external: [
       "react",
       "@tanstack/react-query",
     ],
+  },
+  {
+    input: 'src/cli/index.ts',
+    output: [
+      {
+        file: 'dist/cli/index.js',
+        format: 'esm',
+        sourcemap: true,
+        banner: '#!/usr/bin/env node'
+      }
+    ],
+    plugins: [...createSharedPlugins()],
+    external: [
+      '@stricli/core'
+    ]
   },
   // {
   //   input: "dist/types/index.d.ts",
