@@ -15,7 +15,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "sync:foods": "node ./src/syncFoods.ts",
     "build": "rollup --config",
     "lint": "eslint .",
@@ -31,6 +32,8 @@
     "@rollup/plugin-replace": "6.0.2",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "12.1.4",
+    "@stricli/core": "^1.2.0",
+    "@types/node": "^22.10.5",
     "dotenv": "17.2.2",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
@@ -41,7 +44,8 @@
     "rollup": "^4.52.3",
     "rollup-plugin-delete": "3.0.1",
     "rollup-plugin-dts": "6.2.3",
-    "typescript-eslint": "^8.44.1"
+    "typescript-eslint": "^8.44.1",
+    "vitest": "^3.2.4"
   },
   "keywords": [
     "food",
@@ -79,6 +83,6 @@
   ],
   "dependencies": {
     "@faker-js/faker": "10.0.0",
-    "msw": "2.11.3"
+    "msw": "^2.11.3"
   }
 }
