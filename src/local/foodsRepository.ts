@@ -25,6 +25,7 @@ async function readJsonFile<T>(filePath: string, fallback: T): Promise<T> {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function normalizeFood(raw: any): LocalFoodItem {
   if (raw && typeof raw === 'object' && 'id' in raw) {
     return raw as LocalFoodItem
@@ -44,6 +45,7 @@ function normalizeFood(raw: any): LocalFoodItem {
     foodCode: raw?.foodCode,
     tags: raw?.tags ?? [],
     foodNutrients: Array.isArray(raw?.foodNutrients)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ? raw.foodNutrients.map((nutrient: any) => ({
           number: nutrient?.number ?? nutrient?.id ?? 'unknown',
           name: nutrient?.name ?? 'Unknown',
