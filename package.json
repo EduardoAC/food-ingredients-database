@@ -20,6 +20,7 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "sync:foods": "node ./src/syncFoods.ts",
     "build": "rollup --config",
     "lint": "eslint .",
@@ -45,6 +46,7 @@
     "@semantic-release/npm": "^11.0.3",
     "@semantic-release/release-notes-generator": "^13.0.0",
     "@types/node": "^22.10.5",
+    "@vitest/coverage-v8": "^3.2.4",
     "dotenv": "17.2.2",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",

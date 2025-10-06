@@ -14,6 +14,9 @@ export default defineConfig({
     environment: 'node',
     setupFiles: ['tests/setup/msw.ts'],
     include: ['tests/**/*.test.ts'],
+    coverage: {
+      provider: 'v8'
+    },
     clearMocks: true
   },
   server: {
