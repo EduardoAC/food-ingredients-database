@@ -26,6 +26,13 @@
    - ESM-first TypeScript sources compiled to ESM + CJS bundles via Rollup.
    - Generate `.d.ts` bundles with `rollup-plugin-dts` and expose curated exports through `src/index.ts`.
 
+## Recent Learnings (2025-10-06)
+- Added a provider registry layer (`src/providers`) so consumers and CLI resolve data sources through an abstraction (`FoodProvider`). Default registry seeds the USDA FDC adapter but allows future providers to plug in without changing callers.
+- Normalised all stored food entries to use provider-agnostic identifiers (`id` + optional `externalId`), removing `fdcId` assumptions from public APIs. Consumers now look up items via `findFoodById('provider:external')` or `findFoodByExternalId('external')`.
+- Extended local search APIs and CLI to support returning the full result set when required (`includeAll` flag / `--all` option) while retaining paging defaults for quick lookups.
+- Updated shard normalization to gracefully read legacy entries and ensure nutrient records always carry `number`, `name`, `amount`, and `unitName` for downstream calculations.
+- Documentation (README, AI usage guide) now reflects provider abstraction, canonical IDs, and search behaviour so future contributors can reproduce the setup.
+
 ## Action Plan
 ### Phase 1 – Foundations (in progress)
 1. Introduce sync ports/adapters and migrate the existing USDA FDC integration to the pattern ✅.
@@ -58,4 +65,3 @@
 - Outside-in tests for public API/CLI flows using Vitest + MSW.
 - Contract tests per adapter to assert transformation correctness against recorded fixtures.
 - Smoke tests for persistence adapters (JSON, SQLite) to catch regression in merge/dedup logic.
-
