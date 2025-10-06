@@ -4,7 +4,7 @@ import path from 'node:path'
 import { describe, expect, test } from 'vitest'
 import {
   createFdcDataSourceAdapter,
-  createJsonDatabaseAdapter,
+  createJsonShardedDatabaseAdapter,
   runFoodSync
 } from '../src/sync'
 
@@ -13,10 +13,9 @@ describe('runFoodSync (outside-in)', () => {
     process.env.API_KEY = 'test-key'
 
     const workdir = await mkdtemp(path.join(tmpdir(), 'food-sync-'))
-    const database = createJsonDatabaseAdapter({
-      cwd: workdir,
-      dataFile: 'foods.json',
-      stateFile: 'sync-state.json'
+    const database = createJsonShardedDatabaseAdapter({
+      baseDir: path.join(workdir, 'fdc-data'),
+      stateFileName: 'sync-state.json'
     })
     const dataSource = createFdcDataSourceAdapter({ pageLimit: 1 })
 
@@ -37,16 +36,23 @@ describe('runFoodSync (outside-in)', () => {
     expect(result.totalImported).toBe(2)
     expect(result.lastExternalId).toBe('102')
 
-    const foodsRaw = await readFile(path.join(workdir, 'foods.json'), 'utf-8')
-    const foods = JSON.parse(foodsRaw)
-    expect(foods).toHaveLength(2)
-    expect(foods[0]).toMatchObject({
+    const indexRaw = await readFile(
+      path.join(workdir, 'fdc-data', 'index.json'),
+      'utf-8'
+    )
+    const index = JSON.parse(indexRaw)
+    expect(index.shards.length).toBeGreaterThan(0)
+
+    const shardPath = path.join(workdir, 'fdc-data', 'shards', index.shards[0].shard)
+    const shardFoods = JSON.parse(await readFile(shardPath, 'utf-8'))
+    expect(shardFoods).toHaveLength(2)
+    expect(shardFoods[0]).toMatchObject({
       provider: 'fdc',
-      nutrients: expect.any(Array)
+      foodNutrients: expect.any(Array)
     })
 
     const stateRaw = await readFile(
-      path.join(workdir, 'sync-state.json'),
+      path.join(workdir, 'fdc-data', 'sync-state.json'),
       'utf-8'
     )
     const state = JSON.parse(stateRaw)

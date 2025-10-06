@@ -1,7 +1,7 @@
 import { buildCommand, numberParser } from '@stricli/core'
 import {
   createFdcDataSourceAdapter,
-  createJsonDatabaseAdapter,
+  createJsonShardedDatabaseAdapter,
   syncFoodsWithDefaults
 } from '../../sync'
 import type { CliContext } from '../context'
@@ -10,6 +10,8 @@ interface SyncRunFlags {
   pageSize?: number
   throttleMs?: number
   pageLimit?: number
+  dataDir?: string
+  stateFile?: string
 }
 
 export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
@@ -37,6 +39,22 @@ export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
         brief: 'Limit the number of FDC pages fetched (primarily for testing)',
         optional: true,
         parse: numberParser
+      },
+      dataDir: {
+        kind: 'parsed',
+        brief: 'Override the base directory for sharded food data',
+        optional: true,
+        parse(input) {
+          return input.trim()
+        }
+      },
+      stateFile: {
+        kind: 'parsed',
+        brief: 'Override the sync state file name',
+        optional: true,
+        parse(input) {
+          return input.trim()
+        }
       }
     }
   },
@@ -44,7 +62,10 @@ export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
     const dataSource = createFdcDataSourceAdapter({
       pageLimit: flags.pageLimit
     })
-    const database = createJsonDatabaseAdapter()
+    const database = createJsonShardedDatabaseAdapter({
+      baseDir: flags.dataDir,
+      stateFileName: flags.stateFile
+    })
 
     const result = await syncFoodsWithDefaults(dataSource, database, {
       pageSize: flags.pageSize,

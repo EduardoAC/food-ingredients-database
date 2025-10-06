@@ -6,6 +6,7 @@ import type { CliContext } from '../context'
 interface SyncStatusFlags {
   json?: boolean
   stateFile?: string
+  dataDir?: string
 }
 
 type ProviderState = {
@@ -32,7 +33,15 @@ export const syncStatusCommand = buildCommand<SyncStatusFlags, [], CliContext>({
       },
       stateFile: {
         kind: 'parsed',
-        brief: 'Path to sync-state JSON file (default database/sync-state.json)',
+        brief: 'File name for sync-state JSON (default sync-state.json)',
+        optional: true,
+        parse(input) {
+          return input
+        }
+      },
+      dataDir: {
+        kind: 'parsed',
+        brief: 'Base directory for sync metadata (default database/fdc)',
         optional: true,
         parse(input) {
           return input
@@ -41,7 +50,9 @@ export const syncStatusCommand = buildCommand<SyncStatusFlags, [], CliContext>({
     }
   },
   async func(flags) {
-    const statePath = path.resolve(this.cwd, flags.stateFile ?? 'database/sync-state.json')
+    const baseDir = flags.dataDir ?? 'database/fdc'
+    const stateFileName = flags.stateFile ?? 'sync-state.json'
+    const statePath = path.resolve(this.cwd, baseDir, stateFileName)
 
     let state: SyncStateFile = {}
     try {

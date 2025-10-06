@@ -1,9 +1,9 @@
 import { buildCommand } from '@stricli/core'
-import { createJsonDatabaseAdapter } from '../../sync'
+import { createJsonShardedDatabaseAdapter } from '../../sync'
 import type { CliContext } from '../context'
 
 interface SyncInitFlags {
-  dataFile?: string
+  dataDir?: string
   stateFile?: string
 }
 
@@ -15,9 +15,9 @@ export const syncInitCommand = buildCommand<SyncInitFlags, [], CliContext>({
   },
   parameters: {
     flags: {
-      dataFile: {
+      dataDir: {
         kind: 'parsed',
-        brief: 'Override the foods data JSON file path',
+        brief: 'Override the base directory for sharded food data',
         optional: true,
         parse(input) {
           return input
@@ -34,9 +34,9 @@ export const syncInitCommand = buildCommand<SyncInitFlags, [], CliContext>({
     }
   },
   async func(flags) {
-    const database = createJsonDatabaseAdapter({
-      dataFile: flags.dataFile,
-      stateFile: flags.stateFile
+    const database = createJsonShardedDatabaseAdapter({
+      baseDir: flags.dataDir,
+      stateFileName: flags.stateFile
     })
 
     await database.init()

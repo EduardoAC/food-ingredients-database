@@ -2,7 +2,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
   createFdcDataSourceAdapter,
-  createJsonDatabaseAdapter,
+  createJsonShardedDatabaseAdapter,
   FoodSyncOptions,
   syncFoodsWithDefaults
 } from './sync'
@@ -12,7 +12,7 @@ const DEFAULT_THROTTLE_MS = 1500
 
 export async function syncFoods(options: FoodSyncOptions = {}) {
   const dataSource = createFdcDataSourceAdapter()
-  const database = createJsonDatabaseAdapter()
+  const database = createJsonShardedDatabaseAdapter()
 
   return syncFoodsWithDefaults(dataSource, database, {
     pageSize: options.pageSize ?? DEFAULT_PAGE_SIZE,

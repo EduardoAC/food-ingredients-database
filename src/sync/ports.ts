@@ -1,5 +1,6 @@
 export interface NutrientRecord {
   id: string
+  number?: string
   name: string
   unitName: string
   value: number
@@ -12,6 +13,7 @@ export interface FoodRecord {
   name: string
   dataType?: string
   brandOwner?: string
+  foodCode?: string
   publicationDate?: string
   lastUpdated?: string
   nutrients: NutrientRecord[]

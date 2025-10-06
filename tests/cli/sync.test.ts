@@ -18,35 +18,53 @@ describe('CLI sync commands', () => {
     process.chdir(ORIGINAL_CWD)
   })
 
-  test('sync init creates data and state files', async () => {
-    await runCli(['sync', 'init', '--dataFile', 'foods.json', '--stateFile', 'sync.json'])
+  test('sync init creates sharded data structure', async () => {
+    await runCli(['sync', 'init', '--dataDir', 'data/fdc', '--stateFile', 'state.json'])
 
-    const foodsRaw = await readFile(path.join(workdir, 'foods.json'), 'utf-8')
-    const stateRaw = await readFile(path.join(workdir, 'sync.json'), 'utf-8')
+    const indexRaw = await readFile(path.join(workdir, 'data', 'fdc', 'index.json'), 'utf-8')
+    const stateRaw = await readFile(path.join(workdir, 'data', 'fdc', 'state.json'), 'utf-8')
 
-    expect(foodsRaw.trim()).toBe('[]')
+    expect(JSON.parse(indexRaw)).toEqual(
+      expect.objectContaining({ shards: expect.any(Array), lastUpdated: expect.any(String) })
+    )
     expect(stateRaw.trim()).toBe('{}')
   })
 
-  test('sync run populates database and sync status reports results', async () => {
+  test('sync run populates database, supports search, and sync status reports results', async () => {
     process.env.API_KEY = 'test-key'
 
     // Prepare default files
     await runCli(['sync', 'init'])
 
+    const initialIndexPath = path.join(workdir, 'database', 'fdc', 'index.json')
+    await readFile(initialIndexPath, 'utf-8')
+
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
 
     await runCli(['sync', 'run', '--pageLimit', '1', '--throttleMs', '0'])
 
-    const foodsPath = path.join(workdir, 'database', 'foods.json')
-    const foodsRaw = await readFile(foodsPath, 'utf-8')
-    const foods = JSON.parse(foodsRaw)
-    expect(foods).toHaveLength(2)
+    const runLogs = [...logSpy.mock.calls]
+
+    const foodsIndexPath = path.join(workdir, 'database', 'fdc', 'index.json')
+    const indexContent = await readFile(foodsIndexPath, 'utf-8')
+    const index = JSON.parse(indexContent)
+    const stateContent = await readFile(path.join(workdir, 'database', 'fdc', 'sync-state.json'), 'utf-8')
+    const state = JSON.parse(stateContent)
+    expect(state).toEqual(expect.objectContaining({ fdc: expect.any(Object) }))
+    expect(state.fdc.totalImported).toBe(2)
+    expect(index.shards.length).toBeGreaterThan(0)
+
+    const importLog = runLogs.find(([message]) => String(message).startsWith('[sync:fdc] Imported'))
+    expect(importLog?.[0]).toContain('Imported 2')
 
     logSpy.mockClear()
     await runCli(['sync', 'status'])
 
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('imported 2'))
+
+    logSpy.mockClear()
+    await runCli(['search', '--query', 'apple', '--limit', '5'])
+    expect(logSpy).toHaveBeenCalled()
 
     logSpy.mockRestore()
   })

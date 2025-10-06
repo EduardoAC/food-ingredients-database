@@ -18,8 +18,10 @@ interface FdcAdapterOptions {
 const PROVIDER = 'fdc'
 
 function mapNutrient(nutrient: AbridgedFoodNutrient): NutrientRecord {
+  const nutrientNumber = nutrient.number
   return {
     id: nutrient.number?.toString() ?? nutrient.name ?? 'unknown',
+    number: nutrientNumber !== undefined ? nutrientNumber.toString() : undefined,
     name: nutrient.name ?? 'Unknown',
     unitName: nutrient.unitName ?? 'unit',
     value: nutrient.amount ?? 0
@@ -34,6 +36,7 @@ function mapFood(item: AbridgedFoodItem): FoodRecord {
     name: item.description ?? 'Unknown food',
     dataType: item.dataType,
     brandOwner: item.brandOwner,
+    foodCode: item.foodCode?.toString(),
     publicationDate: item.publicationDate,
     nutrients: (item.foodNutrients ?? []).map(mapNutrient)
   }
