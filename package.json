@@ -25,6 +25,8 @@
     "build": "rollup --config",
     "lint": "eslint .",
     "check:bundle": "node scripts/check-bundle-size.mjs",
+    "lint-staged": "lint-staged",
+    "typecheck": "tsc --noEmit",
     "release": "semantic-release",
     "generate:api": "orval"
   },
@@ -51,7 +53,9 @@
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "jiti": "^2.6.0",
+    "lint-staged": "^16.2.3",
     "orval": "7.12.2",
     "prettier": "3.6.2",
     "rollup": "^4.52.3",
@@ -97,6 +101,14 @@
   ],
   "dependencies": {
     "@faker-js/faker": "10.0.0",
-    "msw": "^2.11.3"
+    "msw": "2.11.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "vitest related --run"
+    ],
+    "*.{json,md,yml,yaml}": "prettier --write"
   }
 }

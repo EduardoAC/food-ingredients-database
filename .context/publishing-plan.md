@@ -1,6 +1,7 @@
 # Publishing & Automation Setup (2025-10-06)
 
 ## Goals
+
 - Establish release automation with semantic-release (semver compliant) and changelog management.
 - Provide CI workflows for PR validation (lint/test/bundle size) and automated publishing to npm.
 - Document contribution guidelines, release process, and tooling expectations.
@@ -8,6 +9,7 @@
 - Ensure local developers (with `NPM_AUTH_TOKEN`) and GitHub Actions (via secrets) can publish.
 
 ## Task Breakdown
+
 1. **Branch Setup**
    - Checkout `main`, create `chore/publishing-setup` ✅
 2. **Tooling Dependencies**
@@ -22,12 +24,15 @@
    - `.github/renovate.json` added ✅
 6. **Documentation**
    - README stays consumer-focused; CONTRIBUTING explains workflow ✅
-7. **Testing**
+7. **Local tooling**
+   - Added Husky pre-commit hook (lint-staged + typecheck) ✅
+8. **Testing**
    - Completed: `npm run lint`, `npm run test:coverage`, `npm run build`, `npm run check:bundle`
-8. **Release Prep**
+9. **Release Prep**
    - Ensure secrets (`NPM_AUTH_TOKEN`) exist before enabling release workflow (follow-up).
 
 ## Outstanding Questions
+
 - Determine target bundle size (initial cap 150 KB gzip?).
 - Confirm Node version for workflows (use 20.x LTS?).
 - Ensure secrets: `NPM_AUTH_TOKEN` (npm) and default `GITHUB_TOKEN` used by semantic-release.

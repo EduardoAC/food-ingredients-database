@@ -1,40 +1,40 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import json from "@eslint/json";
-import markdown from "@eslint/markdown";
-import css from "@eslint/css";
-import { defineConfig } from "eslint/config";
-import eslintConfigPrettier from "eslint-config-prettier";
+import js from '@eslint/js'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+import json from '@eslint/json'
+import markdown from '@eslint/markdown'
+import css from '@eslint/css'
+import { defineConfig } from 'eslint/config'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default defineConfig([
   {
-    ignores: ["package-lock.json", "dist/"] // acts as global ignores, due to the absence of other properties
+    ignores: ['package-lock.json', 'dist/', 'coverage/', 'src/api/**'] // global ignores for generated output
   },
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     plugins: { js },
-    extends: ["js/recommended"],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    extends: ['js/recommended'],
+    languageOptions: { globals: { ...globals.browser, ...globals.node } }
   },
   tseslint.configs.recommended,
   {
-    files: ["**/*.json"],
+    files: ['**/*.json'],
     plugins: { json },
-    language: "json/json",
-    extends: ["json/recommended"],
+    language: 'json/json',
+    extends: ['json/recommended']
   },
   {
-    files: ["**/*.md"],
+    files: ['**/*.md'],
     plugins: { markdown },
-    language: "markdown/commonmark",
-    extends: ["markdown/recommended"],
+    language: 'markdown/commonmark',
+    extends: ['markdown/recommended']
   },
   {
-    files: ["**/*.css"],
+    files: ['**/*.css'],
     plugins: { css },
-    language: "css/css",
-    extends: ["css/recommended"],
+    language: 'css/css',
+    extends: ['css/recommended']
   },
-  eslintConfigPrettier,
-]);
+  eslintConfigPrettier
+])
