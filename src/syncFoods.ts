@@ -1,18 +1,38 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
-  createFdcDataSourceAdapter,
   createJsonShardedDatabaseAdapter,
   FoodSyncOptions,
+  JsonShardedDatabaseAdapterOptions,
+  LocalDatabaseAdapter,
+  DataSourceAdapter,
   syncFoodsWithDefaults
 } from './sync'
+import {
+  createDefaultProviderRegistry,
+  ProviderRegistry
+} from './providers'
 
 const DEFAULT_PAGE_SIZE = 200
 const DEFAULT_THROTTLE_MS = 1500
 
-export async function syncFoods(options: FoodSyncOptions = {}) {
-  const dataSource = createFdcDataSourceAdapter()
-  const database = createJsonShardedDatabaseAdapter()
+export interface SyncFoodsOptions extends FoodSyncOptions {
+  providerId?: string
+  providerOptions?: unknown
+  providerRegistry?: ProviderRegistry
+  dataSource?: DataSourceAdapter
+  database?: LocalDatabaseAdapter
+  databaseOptions?: JsonShardedDatabaseAdapterOptions
+}
+
+export async function syncFoods(options: SyncFoodsOptions = {}) {
+  const registry = options.providerRegistry ?? createDefaultProviderRegistry()
+  const providerId = options.providerId ?? registry.getDefaultProviderId()
+
+  const dataSource =
+    options.dataSource ?? registry.createAdapter(providerId, options.providerOptions)
+
+  const database = options.database ?? createJsonShardedDatabaseAdapter(options.databaseOptions)
 
   return syncFoodsWithDefaults(dataSource, database, {
     pageSize: options.pageSize ?? DEFAULT_PAGE_SIZE,

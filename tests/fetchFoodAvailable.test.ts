@@ -2,11 +2,8 @@ import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { describe, expect, test } from 'vitest'
-import {
-  createFdcDataSourceAdapter,
-  createJsonShardedDatabaseAdapter,
-  runFoodSync
-} from '../src/sync'
+import { createJsonShardedDatabaseAdapter, runFoodSync } from '../src/sync'
+import { createDefaultProviderRegistry } from '../src/providers'
 
 describe('runFoodSync (outside-in)', () => {
   test('synchronises foods into the local JSON database', async () => {
@@ -17,7 +14,8 @@ describe('runFoodSync (outside-in)', () => {
       baseDir: path.join(workdir, 'fdc-data'),
       stateFileName: 'sync-state.json'
     })
-    const dataSource = createFdcDataSourceAdapter({ pageLimit: 1 })
+    const registry = createDefaultProviderRegistry()
+    const dataSource = registry.createAdapter('fdc', { pageLimit: 1 })
 
     const logs: string[] = []
     const result = await runFoodSync(

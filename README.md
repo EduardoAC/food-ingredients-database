@@ -6,6 +6,7 @@ An open-source TypeScript SDK + CLI that synchronises USDA FoodData Central (FDC
 - **Local-first sharded store**: Foods are persisted under `database/fdc/` as small shard files suitable for Git.
 - **Sync pipeline**: Fetch data from FDC via generated Orval client. Run via CLI (`sync run`) or programmatically (`syncFoods`).
 - **Search helpers**: Load and query local shard data with nutrient filters.
+- **Pluggable providers**: Provider registry abstracts third-party APIs (default USDA FDC; more coming).
 - **CLI tooling**: Sync, inspect sync status, and search without writing code.
 - **Type-safe**: Strict TypeScript types covering domain, generated APIs, and CLI contracts.
 
@@ -33,15 +34,31 @@ npx food-ingredients search --query "abalone" --nutrientNumber 203
 ```
 
 All commands support `--dataDir /custom/path` for alternate storage locations.
+Pass `--provider <id>` to target other integrations as they are added; `fdc` remains the default.
 
 ### 3. Use It in Code
 ```ts
-import { syncFoods, createFdcDataSourceAdapter, createJsonShardedDatabaseAdapter, searchLocalFoods } from 'food-ingredients-database'
+import {
+  syncFoods,
+  createDefaultProviderRegistry,
+  createJsonShardedDatabaseAdapter,
+  searchLocalFoods
+} from 'food-ingredients-database'
 
 async function refreshFoods() {
-  const dataSource = createFdcDataSourceAdapter({ pageLimit: 1 })
+  const registry = createDefaultProviderRegistry()
+  const dataSource = registry.createAdapter('fdc', { pageLimit: 1 })
   const database = createJsonShardedDatabaseAdapter({ baseDir: './database/fdc' })
-  await syncFoods({ pageSize: 200, throttleMs: 0, logger: console, dataSource, database })
+
+  await syncFoods({
+    providerId: 'fdc',
+    providerOptions: { pageLimit: 1 },
+    pageSize: 200,
+    throttleMs: 0,
+    logger: console,
+    dataSource,
+    database
+  })
 }
 
 async function findProteinRichFoods() {
@@ -50,12 +67,16 @@ async function findProteinRichFoods() {
 }
 ```
 
-### 4. Programmatic Access Helpers
+### 4. Provider Registry Helpers
+- `createDefaultProviderRegistry()` – returns registry seeded with `fdc`. Register additional providers (e.g., OpenFoodFacts) as they become available.
+- `registry.createAdapter('fdc', { pageLimit: 1 })` – instantiate a provider-specific data source via the shared interface.
+
+### 5. Programmatic Access Helpers
 - `loadLocalFoods(options)` – load all foods from shards.
 - `findFoodByFdcId(fdcId, options)` – look up by numeric ID.
 - `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults })` – text + nutrient filters.
 
-### 5. Testing
+### 6. Testing
 ```bash
 npm run test
 ```
@@ -88,4 +109,3 @@ database/fdc/
 
 ## License
 Apache 2.0
-

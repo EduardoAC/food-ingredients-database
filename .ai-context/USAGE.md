@@ -29,6 +29,7 @@
 - JSON shard adapter (`src/sync/adapters/jsonShardedDatabaseAdapter.ts`) is the preferred local store; keep any new persistence logic behind the interface.
 - Shard files should remain small (<500 items). Adjust `shardSize` via adapter options if needed.
 - Sync state is stored per-provider in `database/fdc/sync-state.json`; always write via adapter methods to keep timestamps/counters consistent.
+- Provider abstraction lives in `src/providers`. Register new providers via `ProviderRegistry` and expose them through `createDefaultProviderRegistry()` so CLI/API automatically pick them up.
 
 ## Local Data Layout
 - `database/fdc/index.json` — array of shard metadata (`shard`, `size`, timestamp).

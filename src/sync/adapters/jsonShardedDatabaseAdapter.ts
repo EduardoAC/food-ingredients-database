@@ -7,7 +7,7 @@ import {
   SyncState
 } from '../ports'
 
-interface JsonShardedDatabaseAdapterOptions {
+export interface JsonShardedDatabaseAdapterOptions {
   baseDir?: string
   shardSize?: number
   stateFileName?: string

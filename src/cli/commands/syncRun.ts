@@ -1,9 +1,6 @@
 import { buildCommand, numberParser } from '@stricli/core'
-import {
-  createFdcDataSourceAdapter,
-  createJsonShardedDatabaseAdapter,
-  syncFoodsWithDefaults
-} from '../../sync'
+import { createJsonShardedDatabaseAdapter, syncFoodsWithDefaults } from '../../sync'
+import { createDefaultProviderRegistry } from '../../providers'
 import type { CliContext } from '../context'
 
 interface SyncRunFlags {
@@ -12,6 +9,7 @@ interface SyncRunFlags {
   pageLimit?: number
   dataDir?: string
   stateFile?: string
+  provider?: string
 }
 
 export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
@@ -55,11 +53,27 @@ export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
         parse(input) {
           return input.trim()
         }
+      },
+      provider: {
+        kind: 'parsed',
+        brief: 'Provider identifier to sync from (default fdc)',
+        optional: true,
+        parse(input) {
+          return input.trim()
+        }
       }
     }
   },
   async func(flags) {
-    const dataSource = createFdcDataSourceAdapter({
+    const registry = createDefaultProviderRegistry()
+    const providerId = flags.provider ?? registry.getDefaultProviderId()
+
+    if (!registry.has(providerId)) {
+      const available = registry.list().map((provider) => provider.id).join(', ') || '<none>'
+      throw new Error(`Unknown provider "${providerId}". Available providers: ${available}`)
+    }
+
+    const dataSource = registry.createAdapter(providerId, {
       pageLimit: flags.pageLimit
     })
     const database = createJsonShardedDatabaseAdapter({
