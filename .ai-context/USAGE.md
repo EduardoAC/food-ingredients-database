@@ -33,7 +33,7 @@
 
 ## Local Data Layout
 - `database/fdc/index.json` — array of shard metadata (`shard`, `size`, timestamp).
-- `database/fdc/shards/####.json` — canonical food entries matching FDC JSON structure (see Abalone example).
+- `database/fdc/shards/####.json` — canonical food entries with `id` (`<provider>:<externalId>`), optional `externalId`, and nutrient lists (see Abalone example).
 - `database/fdc/sync-state.json` — provider run metadata (`lastExternalId`, `totalImported`, `lastSyncedAt`).
 - The repo includes the Abalone record as a minimal seed; treat shards as fixtures for integration tests.
 

@@ -25,6 +25,35 @@ async function readJsonFile<T>(filePath: string, fallback: T): Promise<T> {
   }
 }
 
+function normalizeFood(raw: any): LocalFoodItem {
+  if (raw && typeof raw === 'object' && 'id' in raw) {
+    return raw as LocalFoodItem
+  }
+
+  const provider = raw?.provider ?? 'unknown'
+  const externalId = raw?.externalId ?? (raw?.fdcId !== undefined ? String(raw.fdcId) : undefined)
+  const baseId = raw?.id ?? (externalId ? `${provider}:${externalId}` : `${provider}:unknown`)
+
+  return {
+    id: baseId,
+    provider,
+    externalId,
+    description: raw?.description ?? 'Unknown food',
+    dataType: raw?.dataType,
+    publicationDate: raw?.publicationDate,
+    foodCode: raw?.foodCode,
+    tags: raw?.tags ?? [],
+    foodNutrients: Array.isArray(raw?.foodNutrients)
+      ? raw.foodNutrients.map((nutrient: any) => ({
+          number: nutrient?.number ?? nutrient?.id ?? 'unknown',
+          name: nutrient?.name ?? 'Unknown',
+          amount: nutrient?.amount ?? nutrient?.value ?? 0,
+          unitName: nutrient?.unitName ?? 'unit'
+        }))
+      : []
+  }
+}
+
 export async function loadLocalFoods(
   options: LoadLocalFoodsOptions = {}
 ): Promise<LocalFoodItem[]> {
@@ -48,18 +77,26 @@ export async function loadLocalFoods(
   for (const entry of index.shards) {
     const shardPath = path.resolve(shardsDir, entry.shard)
     const shardFoods = await readJsonFile<LocalFoodItem[]>(shardPath, [])
-    foods.push(...shardFoods)
+    foods.push(...shardFoods.map(normalizeFood))
   }
 
   return foods
 }
 
-export async function findFoodByFdcId(
-  fdcId: number,
+export async function findFoodById(
+  id: string,
   options: LoadLocalFoodsOptions = {}
 ): Promise<LocalFoodItem | undefined> {
   const foods = await loadLocalFoods(options)
-  return foods.find((food) => food.fdcId === fdcId)
+  return foods.find((food) => food.id === id)
+}
+
+export async function findFoodByExternalId(
+  externalId: string,
+  options: LoadLocalFoodsOptions = {}
+): Promise<LocalFoodItem | undefined> {
+  const foods = await loadLocalFoods(options)
+  return foods.find((food) => food.externalId === externalId)
 }
 
 function matchesQuery(food: LocalFoodItem, query: string): boolean {
@@ -101,6 +138,10 @@ export async function searchLocalFoods(
   )
 
   const sorted = filtered.sort((a, b) => a.description.localeCompare(b.description))
+  if (options.includeAll) {
+    return sorted
+  }
+
   const limit = options.maxResults ?? 50
-  return sorted.slice(0, limit)
+  return limit > 0 ? sorted.slice(0, limit) : sorted
 }

@@ -1,2 +1,2 @@
 export * from './types'
-export { loadLocalFoods, findFoodByFdcId, searchLocalFoods } from './foodsRepository'
+export { loadLocalFoods, findFoodById, findFoodByExternalId, searchLocalFoods } from './foodsRepository'

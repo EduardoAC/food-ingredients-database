@@ -45,7 +45,9 @@ describe('runFoodSync (outside-in)', () => {
     const shardFoods = JSON.parse(await readFile(shardPath, 'utf-8'))
     expect(shardFoods).toHaveLength(2)
     expect(shardFoods[0]).toMatchObject({
+      id: expect.stringContaining('fdc:'),
       provider: 'fdc',
+      externalId: expect.any(String),
       foodNutrients: expect.any(Array)
     })
 

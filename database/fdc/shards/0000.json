@@ -1,7 +1,8 @@
 [
   {
-    "fdcId": 2706337,
+    "id": "fdc:2706337",
     "provider": "fdc",
+    "externalId": "2706337",
     "description": "Abalone",
     "dataType": "Survey (FNDDS)",
     "publicationDate": "2024-10-31",

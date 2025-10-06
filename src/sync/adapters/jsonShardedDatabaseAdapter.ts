@@ -22,8 +22,9 @@ interface StoredNutrient {
 }
 
 export interface StoredFoodItem {
-  fdcId: number
+  id: string
   provider: string
+  externalId?: string
   description: string
   dataType?: string
   publicationDate?: string
@@ -80,7 +81,6 @@ async function writeJsonFile<T>(filePath: string, data: T) {
 }
 
 function toStoredFood(food: FoodRecord): StoredFoodItem {
-  const fdcId = Number(food.externalId ?? food.id.split(':')[1])
   const nutrients = food.nutrients.map((nutrient: NutrientRecord): StoredNutrient => ({
     number: nutrient.number ?? nutrient.id,
     name: nutrient.name,
@@ -89,13 +89,14 @@ function toStoredFood(food: FoodRecord): StoredFoodItem {
   }))
 
   return {
-    fdcId,
+    id: food.id,
     provider: food.provider,
+    externalId: food.externalId,
     description: food.name,
     dataType: food.dataType,
     publicationDate: food.publicationDate,
     foodCode: food.foodCode,
-    tags: food.tags,
+    tags: food.tags ?? [],
     foodNutrients: nutrients
   }
 }
@@ -143,7 +144,13 @@ class JsonShardedDatabaseAdapter implements LocalDatabaseAdapter {
       merged.set(this.getFoodKey(stored), stored)
     }
 
-    const sorted = Array.from(merged.values()).sort((a, b) => a.fdcId - b.fdcId)
+    const sorted = Array.from(merged.values()).sort((a, b) => {
+      const descriptionCompare = a.description.localeCompare(b.description)
+      if (descriptionCompare !== 0) {
+        return descriptionCompare
+      }
+      return a.id.localeCompare(b.id)
+    })
     await this.writeShards(sorted)
   }
 
@@ -197,7 +204,7 @@ class JsonShardedDatabaseAdapter implements LocalDatabaseAdapter {
   }
 
   private getFoodKey(food: StoredFoodItem): string {
-    return `${food.provider}:${food.fdcId}`
+    return food.id
   }
 
   private async writeShards(foods: StoredFoodItem[]) {

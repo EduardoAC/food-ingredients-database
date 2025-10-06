@@ -10,4 +10,5 @@ export interface SearchLocalFoodsOptions extends LoadLocalFoodsOptions {
   nutrientNumber?: string
   nutrientName?: string
   maxResults?: number
+  includeAll?: boolean
 }

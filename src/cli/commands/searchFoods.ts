@@ -9,6 +9,7 @@ interface SearchFlags {
   json?: boolean
   limit?: number
   dataDir?: string
+  all?: boolean
 }
 
 export const searchFoodsCommand = buildCommand<SearchFlags, [], CliContext>({
@@ -66,15 +67,22 @@ export const searchFoodsCommand = buildCommand<SearchFlags, [], CliContext>({
         parse(input) {
           return input.trim()
         }
+      },
+      all: {
+        kind: 'boolean',
+        brief: 'Return all matching foods (ignores limit)',
+        optional: true
       }
     }
   },
   async func(flags) {
+    const includeAll = Boolean(flags.all)
     const results = await searchLocalFoods(flags.query ?? '', {
       baseDir: flags.dataDir,
       nutrientNumber: flags.nutrientNumber,
       nutrientName: flags.nutrientName,
-      maxResults: flags.limit ?? 10
+      includeAll,
+      maxResults: includeAll ? undefined : flags.limit ?? 10
     })
 
     if (flags.json) {
@@ -88,8 +96,9 @@ export const searchFoodsCommand = buildCommand<SearchFlags, [], CliContext>({
     }
 
     for (const food of results) {
+      const identity = food.externalId ? `${food.provider}:${food.externalId}` : food.id
       this.logger.log(
-        `[cli] ${food.description} (fdcId ${food.fdcId}) — ${food.foodNutrients
+        `[cli] ${food.description} [${identity}] — ${food.foodNutrients
           .map((nutrient) => `${nutrient.name}: ${nutrient.amount}${nutrient.unitName}`)
           .slice(0, 3)
           .join(', ')}${food.foodNutrients.length > 3 ? ', …' : ''}`

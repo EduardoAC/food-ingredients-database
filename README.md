@@ -31,6 +31,7 @@ npx food-ingredients sync init
 npx food-ingredients sync run --pageLimit 1 --throttleMs 0
 npx food-ingredients sync status
 npx food-ingredients search --query "abalone" --nutrientNumber 203
+npx food-ingredients search --all --nutrientNumber 203
 ```
 
 All commands support `--dataDir /custom/path` for alternate storage locations.
@@ -73,8 +74,9 @@ async function findProteinRichFoods() {
 
 ### 5. Programmatic Access Helpers
 - `loadLocalFoods(options)` – load all foods from shards.
-- `findFoodByFdcId(fdcId, options)` – look up by numeric ID.
-- `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults })` – text + nutrient filters.
+- `findFoodById(id, options)` – look up by canonical identifier (e.g. `fdc:2706337`).
+- `findFoodByExternalId(externalId, options)` – look up by third-party identifier (e.g. the raw FDC id `2706337`).
+- `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults, includeAll })` – text + nutrient filters (`includeAll` returns the entire result set).
 
 ### 6. Testing
 ```bash
