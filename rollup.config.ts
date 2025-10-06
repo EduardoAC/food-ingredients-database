@@ -1,11 +1,10 @@
 import { defineConfig } from 'rollup'
-import dotenv from 'dotenv'
 import del from 'rollup-plugin-delete'
-import { dts } from 'rollup-plugin-dts'
 import typescript from '@rollup/plugin-typescript'
 import resolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import replace from '@rollup/plugin-replace'
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -26,6 +25,7 @@ function createSharedPlugins() {
     typescript({
       tsconfig: './tsconfig.json'
     }),
+    terser(),
     ...createMinifyPlugins()
   ]
 }

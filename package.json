@@ -23,6 +23,8 @@
     "sync:foods": "node ./src/syncFoods.ts",
     "build": "rollup --config",
     "lint": "eslint .",
+    "check:bundle": "node scripts/check-bundle-size.mjs",
+    "release": "semantic-release",
     "generate:api": "orval"
   },
   "devDependencies": {
@@ -36,6 +38,12 @@
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "12.1.4",
     "@stricli/core": "^1.2.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3",
+    "@semantic-release/release-notes-generator": "^13.0.0",
     "@types/node": "^22.10.5",
     "dotenv": "17.2.2",
     "eslint": "^9.36.0",
@@ -47,6 +55,7 @@
     "rollup": "^4.52.3",
     "rollup-plugin-delete": "3.0.1",
     "rollup-plugin-dts": "6.2.3",
+    "semantic-release": "^23.1.1",
     "typescript-eslint": "^8.44.1",
     "vitest": "^3.2.4"
   },
