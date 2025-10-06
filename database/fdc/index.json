@@ -1,0 +1,9 @@
+{
+  "shards": [
+    {
+      "shard": "0000.json",
+      "size": 1
+    }
+  ],
+  "lastUpdated": "2024-10-31T00:00:00.000Z"
+}

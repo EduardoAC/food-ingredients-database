@@ -1,4 +1,8 @@
 export * from './api/model'
 export * from './api/fdc/fdc'
 export * from './api/fdc/fdc.msw'
-export { syncFoods } from "./syncFoods"
+export * from './sync'
+export { syncFoods } from './syncFoods'
+export * from './local'
+export * from './providers'
+export { runCli } from './cli/index'
