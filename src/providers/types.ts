@@ -7,7 +7,7 @@ export interface FoodProvider<TOptions = unknown> {
   createAdapter(options?: TOptions): DataSourceAdapter
 }
 
-export type AnyFoodProvider = FoodProvider<any>
+export type AnyFoodProvider = FoodProvider<unknown>
 
 export type ProviderOptionsOf<TProvider> = TProvider extends FoodProvider<infer TOptions>
   ? TOptions
