@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/EduardoAC/food-ingredients-database/compare/v1.0.1...v1.1.0) (2026-03-20)
+
+
+### Features
+
+* Import new ingredients and add database-backed meal coverage confidence ([#6](https://github.com/EduardoAC/food-ingredients-database/issues/6)) ([28c2fa9](https://github.com/EduardoAC/food-ingredients-database/commit/28c2fa9a49275666bfe896376565371f8580fb86))
+
 ## [1.0.1](https://github.com/EduardoAC/food-ingredients-database/compare/v1.0.0...v1.0.1) (2026-03-20)
 
 
