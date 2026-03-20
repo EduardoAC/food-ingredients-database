@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "source": "fixture"
+  },
+  "ingredients": [
+    {
+      "id": "ing_avocado",
+      "name": "Avocado",
+      "category": "fruit",
+      "caloriesPer100g": 160,
+      "proteinPer100g": 2,
+      "carbsPer100g": 8.5,
+      "fatPer100g": 14.7,
+      "fiberPer100g": 6.7,
+      "sugarPer100g": 0.7,
+      "saturatedFatPer100g": 2.1,
+      "sodiumPer100g": 7,
+      "vitamins": {},
+      "minerals": {},
+      "allergens": [],
+      "isCustom": false,
+      "createdAt": "2026-01-04T00:00:00+00:00",
+      "updatedAt": "2026-01-04T00:00:00+00:00"
+    },
+    {
+      "id": "ing_egg_whole",
+      "name": "Egg, whole",
+      "category": "protein",
+      "caloriesPer100g": 143,
+      "proteinPer100g": 12.6,
+      "carbsPer100g": 0.7,
+      "fatPer100g": 9.5,
+      "fiberPer100g": 0,
+      "sugarPer100g": 0.7,
+      "saturatedFatPer100g": 3.1,
+      "sodiumPer100g": 140,
+      "vitamins": {},
+      "minerals": {},
+      "allergens": ["eggs"],
+      "isCustom": false,
+      "createdAt": "2026-01-04T00:00:00+00:00",
+      "updatedAt": "2026-01-04T00:00:00+00:00"
+    },
+    {
+      "id": "ing_tomato",
+      "name": "Tomato",
+      "category": "vegetable",
+      "caloriesPer100g": 18,
+      "proteinPer100g": 0.9,
+      "carbsPer100g": 3.9,
+      "fatPer100g": 0.2,
+      "fiberPer100g": 1.2,
+      "sugarPer100g": 2.6,
+      "saturatedFatPer100g": 0,
+      "sodiumPer100g": 5,
+      "vitamins": {},
+      "minerals": {},
+      "allergens": [],
+      "isCustom": false,
+      "createdAt": "2026-01-04T00:00:00+00:00",
+      "updatedAt": "2026-01-04T00:00:00+00:00"
+    }
+  ]
+}

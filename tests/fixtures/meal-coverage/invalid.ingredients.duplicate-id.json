@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "source": "fixture"
+  },
+  "ingredients": [
+    {
+      "id": "ing_avocado",
+      "name": "Avocado",
+      "category": "fruit",
+      "caloriesPer100g": 160,
+      "proteinPer100g": 2,
+      "carbsPer100g": 8.5,
+      "fatPer100g": 14.7,
+      "fiberPer100g": 6.7,
+      "sugarPer100g": 0.7,
+      "saturatedFatPer100g": 2.1,
+      "sodiumPer100g": 7,
+      "vitamins": {},
+      "minerals": {},
+      "allergens": [],
+      "isCustom": false,
+      "createdAt": "2026-01-04T00:00:00+00:00",
+      "updatedAt": "2026-01-04T00:00:00+00:00"
+    },
+    {
+      "id": "ing_avocado",
+      "name": "Avocado Duplicate",
+      "category": "fruit",
+      "caloriesPer100g": 160,
+      "proteinPer100g": 2,
+      "carbsPer100g": 8.5,
+      "fatPer100g": 14.7,
+      "fiberPer100g": 6.7,
+      "sugarPer100g": 0.7,
+      "saturatedFatPer100g": 2.1,
+      "sodiumPer100g": 7,
+      "vitamins": {},
+      "minerals": {},
+      "allergens": [],
+      "isCustom": false,
+      "createdAt": "2026-01-04T00:00:00+00:00",
+      "updatedAt": "2026-01-04T00:00:00+00:00"
+    }
+  ]
+}

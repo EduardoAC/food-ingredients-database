@@ -22,6 +22,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "sync:foods": "node ./src/syncFoods.ts",
+    "validate:meal-coverage": "node ./scripts/validate-meal-ingredient-coverage.mjs",
     "build": "node scripts/generate-bundled-shards.mjs && rollup --config rollup.config.mjs",
     "lint": "eslint .",
     "check:bundle": "node scripts/check-bundle-size.mjs",
