@@ -22,7 +22,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "sync:foods": "node ./src/syncFoods.ts",
-    "build": "rollup --config",
+    "build": "node scripts/generate-bundled-shards.mjs && rollup --config rollup.config.mjs",
     "lint": "eslint .",
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "lint-staged": "lint-staged",
@@ -36,6 +36,7 @@
     "@eslint/json": "0.13.2",
     "@eslint/markdown": "^7.3.0",
     "@orval/core": "7.12.2",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@rollup/plugin-replace": "6.0.2",
     "@rollup/plugin-terser": "0.4.4",
@@ -46,7 +47,6 @@
     "@semantic-release/github": "^10.0.1",
     "@semantic-release/npm": "^11.0.3",
     "@semantic-release/release-notes-generator": "^13.0.0",
-    "@stricli/core": "^1.2.0",
     "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^3.2.4",
     "dotenv": "17.2.2",
@@ -101,6 +101,7 @@
   ],
   "dependencies": {
     "@faker-js/faker": "10.0.0",
+    "@stricli/core": "^1.2.0",
     "msw": "2.11.3"
   },
   "lint-staged": {

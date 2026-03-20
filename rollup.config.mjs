@@ -4,9 +4,10 @@ import typescript from '@rollup/plugin-typescript'
 import resolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import replace from '@rollup/plugin-replace'
-import dotenv from 'dotenv';
+import json from '@rollup/plugin-json'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 const envReplacements = {
   preventAssignment: true,
@@ -18,6 +19,7 @@ const shouldMinify = process.env.BUILD_MINIFY !== 'false'
 function createSharedPlugins() {
   return [
     replace(envReplacements),
+    json(),
     resolve({
       browser: true,
       extensions: ['.js', '.jsx', '.ts', '.tsx']
@@ -54,8 +56,8 @@ export default defineConfig([
     output: [
       {
         file: 'dist/index.esm.js',
-        format: "esm",
-        sourcemap: true,
+        format: 'esm',
+        sourcemap: true
       },
       {
         file: 'dist/index.js',
@@ -69,26 +71,23 @@ export default defineConfig([
         sourcemap: true
       }
     ],
-    plugins: [del({ targets: 'dist/*', hook: 'buildStart' }), ...createSharedPlugins()],
-    external: [
-      "react",
-      "@tanstack/react-query",
+    plugins: [
+      del({ targets: 'dist/*', hook: 'buildStart' }),
+      ...createSharedPlugins()
     ],
+    external: ['react', '@tanstack/react-query']
   },
   {
     input: 'src/syncFoods.ts',
     output: [
       {
         file: 'dist/syncFoods.esm.js',
-        format: "esm",
-        sourcemap: true,
-      },
+        format: 'esm',
+        sourcemap: true
+      }
     ],
     plugins: [...createSharedPlugins()],
-    external: [
-      "react",
-      "@tanstack/react-query",
-    ],
+    external: ['react', '@tanstack/react-query']
   },
   {
     input: 'src/cli/index.ts',
@@ -101,10 +100,8 @@ export default defineConfig([
       }
     ],
     plugins: [...createSharedPlugins()],
-    external: [
-      '@stricli/core'
-    ]
-  },
+    external: ['@stricli/core']
+  }
   // {
   //   input: "dist/types/index.d.ts",
   //   output: [{ file: "dist/index.d.ts", format: "es" }],
@@ -113,4 +110,4 @@ export default defineConfig([
   //     del({ hook: "buildEnd", targets: "dist/types", verbose: true }),
   //   ],
   // },
-]);
+])
