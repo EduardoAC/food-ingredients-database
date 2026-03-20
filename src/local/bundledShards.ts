@@ -14,8 +14,8 @@ export const bundledIndex = {
   shards: [
     {
       shard: '0000.json',
-      size: 1
+      size: 47
     }
   ],
-  lastUpdated: '2024-10-31T00:00:00.000Z'
+  lastUpdated: '2026-03-20T09:30:21.120Z'
 } as const

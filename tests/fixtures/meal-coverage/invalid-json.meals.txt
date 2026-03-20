@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "source": "fixture"
+  },
+  "meals": [
+    {
+      "id": "meal_0001",
+      "name": "Broken"
+    }
+  

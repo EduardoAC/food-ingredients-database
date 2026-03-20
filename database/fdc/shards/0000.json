@@ -8,71 +8,3115 @@
     "publicationDate": "2024-10-31",
     "foodCode": "26301110",
     "foodNutrients": [
-      { "number": "203", "name": "Protein", "amount": 21.2, "unitName": "G" },
-      { "number": "204", "name": "Total lipid (fat)", "amount": 6.12, "unitName": "G" },
-      { "number": "205", "name": "Carbohydrate, by difference", "amount": 7.46, "unitName": "G" },
-      { "number": "208", "name": "Energy", "amount": 177, "unitName": "KCAL" },
-      { "number": "221", "name": "Alcohol, ethyl", "amount": 0, "unitName": "G" },
-      { "number": "255", "name": "Water", "amount": 62.7, "unitName": "G" },
-      { "number": "262", "name": "Caffeine", "amount": 0, "unitName": "MG" },
-      { "number": "263", "name": "Theobromine", "amount": 0, "unitName": "MG" },
-      { "number": "269", "name": "Total Sugars", "amount": 0, "unitName": "G" },
-      { "number": "291", "name": "Fiber, total dietary", "amount": 0, "unitName": "G" },
-      { "number": "301", "name": "Calcium, Ca", "amount": 39, "unitName": "MG" },
-      { "number": "303", "name": "Iron, Fe", "amount": 3.97, "unitName": "MG" },
-      { "number": "304", "name": "Magnesium, Mg", "amount": 60, "unitName": "MG" },
-      { "number": "305", "name": "Phosphorus, P", "amount": 236, "unitName": "MG" },
-      { "number": "306", "name": "Potassium, K", "amount": 310, "unitName": "MG" },
-      { "number": "307", "name": "Sodium, Na", "amount": 574, "unitName": "MG" },
-      { "number": "309", "name": "Zinc, Zn", "amount": 1.02, "unitName": "MG" },
-      { "number": "312", "name": "Copper, Cu", "amount": 0.243, "unitName": "MG" },
-      { "number": "317", "name": "Selenium, Se", "amount": 55.6, "unitName": "UG" },
-      { "number": "319", "name": "Retinol", "amount": 2, "unitName": "UG" },
-      { "number": "320", "name": "Vitamin A, RAE", "amount": 2, "unitName": "UG" },
-      { "number": "321", "name": "Carotene, beta", "amount": 0, "unitName": "UG" },
-      { "number": "322", "name": "Carotene, alpha", "amount": 0, "unitName": "UG" },
-      { "number": "323", "name": "Vitamin E (alpha-tocopherol)", "amount": 5.95, "unitName": "MG" },
-      { "number": "328", "name": "Vitamin D (D2 + D3)", "amount": 0, "unitName": "UG" },
-      { "number": "334", "name": "Cryptoxanthin, beta", "amount": 0, "unitName": "UG" },
-      { "number": "337", "name": "Lycopene", "amount": 0, "unitName": "UG" },
-      { "number": "338", "name": "Lutein + zeaxanthin", "amount": 0, "unitName": "UG" },
-      { "number": "401", "name": "Vitamin C, total ascorbic acid", "amount": 2, "unitName": "MG" },
-      { "number": "404", "name": "Thiamin", "amount": 0.201, "unitName": "MG" },
-      { "number": "405", "name": "Riboflavin", "amount": 0.118, "unitName": "MG" },
-      { "number": "406", "name": "Niacin", "amount": 1.77, "unitName": "MG" },
-      { "number": "415", "name": "Vitamin B-6", "amount": 0.168, "unitName": "MG" },
-      { "number": "417", "name": "Folate, total", "amount": 5, "unitName": "UG" },
-      { "number": "418", "name": "Vitamin B-12", "amount": 0.77, "unitName": "UG" },
-      { "number": "421", "name": "Choline, total", "amount": 80.7, "unitName": "MG" },
-      { "number": "430", "name": "Vitamin K (phylloquinone)", "amount": 33.8, "unitName": "UG" },
-      { "number": "431", "name": "Folic acid", "amount": 0, "unitName": "UG" },
-      { "number": "432", "name": "Folate, food", "amount": 5, "unitName": "UG" },
-      { "number": "435", "name": "Folate, DFE", "amount": 5, "unitName": "UG" },
-      { "number": "573", "name": "Vitamin E, added", "amount": 0, "unitName": "MG" },
-      { "number": "578", "name": "Vitamin B-12, added", "amount": 0, "unitName": "UG" },
-      { "number": "601", "name": "Cholesterol", "amount": 106, "unitName": "MG" },
-      { "number": "606", "name": "Fatty acids, total saturated", "amount": 0.877, "unitName": "G" },
-      { "number": "607", "name": "SFA 4:0", "amount": 0, "unitName": "G" },
-      { "number": "608", "name": "SFA 6:0", "amount": 0, "unitName": "G" },
-      { "number": "609", "name": "SFA 8:0", "amount": 0, "unitName": "G" },
-      { "number": "610", "name": "SFA 10:0", "amount": 0, "unitName": "G" },
-      { "number": "611", "name": "SFA 12:0", "amount": 0, "unitName": "G" },
-      { "number": "612", "name": "SFA 14:0", "amount": 0.031, "unitName": "G" },
-      { "number": "613", "name": "SFA 16:0", "amount": 0.624, "unitName": "G" },
-      { "number": "614", "name": "SFA 18:0", "amount": 0.175, "unitName": "G" },
-      { "number": "617", "name": "MUFA 18:1", "amount": 2.24, "unitName": "G" },
-      { "number": "618", "name": "PUFA 18:2", "amount": 1.77, "unitName": "G" },
-      { "number": "619", "name": "PUFA 18:3", "amount": 0.226, "unitName": "G" },
-      { "number": "620", "name": "PUFA 20:4", "amount": 0, "unitName": "G" },
-      { "number": "621", "name": "PUFA 22:6 n-3 (DHA)", "amount": 0, "unitName": "G" },
-      { "number": "626", "name": "MUFA 16:1", "amount": 0.043, "unitName": "G" },
-      { "number": "627", "name": "PUFA 18:4", "amount": 0.007, "unitName": "G" },
-      { "number": "628", "name": "MUFA 20:1", "amount": 0.035, "unitName": "G" },
-      { "number": "629", "name": "PUFA 20:5 n-3 (EPA)", "amount": 0.061, "unitName": "G" },
-      { "number": "630", "name": "MUFA 22:1", "amount": 0, "unitName": "G" },
-      { "number": "631", "name": "PUFA 22:5 n-3 (DPA)", "amount": 0.051, "unitName": "G" },
-      { "number": "645", "name": "Fatty acids, total monounsaturated", "amount": 2.33, "unitName": "G" },
-      { "number": "646", "name": "Fatty acids, total polyunsaturated", "amount": 2.12, "unitName": "G" }
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 21.2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 6.12,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 7.46,
+        "unitName": "G"
+      },
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 177,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "221",
+        "name": "Alcohol, ethyl",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "255",
+        "name": "Water",
+        "amount": 62.7,
+        "unitName": "G"
+      },
+      {
+        "number": "262",
+        "name": "Caffeine",
+        "amount": 0,
+        "unitName": "MG"
+      },
+      {
+        "number": "263",
+        "name": "Theobromine",
+        "amount": 0,
+        "unitName": "MG"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "301",
+        "name": "Calcium, Ca",
+        "amount": 39,
+        "unitName": "MG"
+      },
+      {
+        "number": "303",
+        "name": "Iron, Fe",
+        "amount": 3.97,
+        "unitName": "MG"
+      },
+      {
+        "number": "304",
+        "name": "Magnesium, Mg",
+        "amount": 60,
+        "unitName": "MG"
+      },
+      {
+        "number": "305",
+        "name": "Phosphorus, P",
+        "amount": 236,
+        "unitName": "MG"
+      },
+      {
+        "number": "306",
+        "name": "Potassium, K",
+        "amount": 310,
+        "unitName": "MG"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 574,
+        "unitName": "MG"
+      },
+      {
+        "number": "309",
+        "name": "Zinc, Zn",
+        "amount": 1.02,
+        "unitName": "MG"
+      },
+      {
+        "number": "312",
+        "name": "Copper, Cu",
+        "amount": 0.243,
+        "unitName": "MG"
+      },
+      {
+        "number": "317",
+        "name": "Selenium, Se",
+        "amount": 55.6,
+        "unitName": "UG"
+      },
+      {
+        "number": "319",
+        "name": "Retinol",
+        "amount": 2,
+        "unitName": "UG"
+      },
+      {
+        "number": "320",
+        "name": "Vitamin A, RAE",
+        "amount": 2,
+        "unitName": "UG"
+      },
+      {
+        "number": "321",
+        "name": "Carotene, beta",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "322",
+        "name": "Carotene, alpha",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "323",
+        "name": "Vitamin E (alpha-tocopherol)",
+        "amount": 5.95,
+        "unitName": "MG"
+      },
+      {
+        "number": "328",
+        "name": "Vitamin D (D2 + D3)",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "334",
+        "name": "Cryptoxanthin, beta",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "337",
+        "name": "Lycopene",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "338",
+        "name": "Lutein + zeaxanthin",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "401",
+        "name": "Vitamin C, total ascorbic acid",
+        "amount": 2,
+        "unitName": "MG"
+      },
+      {
+        "number": "404",
+        "name": "Thiamin",
+        "amount": 0.201,
+        "unitName": "MG"
+      },
+      {
+        "number": "405",
+        "name": "Riboflavin",
+        "amount": 0.118,
+        "unitName": "MG"
+      },
+      {
+        "number": "406",
+        "name": "Niacin",
+        "amount": 1.77,
+        "unitName": "MG"
+      },
+      {
+        "number": "415",
+        "name": "Vitamin B-6",
+        "amount": 0.168,
+        "unitName": "MG"
+      },
+      {
+        "number": "417",
+        "name": "Folate, total",
+        "amount": 5,
+        "unitName": "UG"
+      },
+      {
+        "number": "418",
+        "name": "Vitamin B-12",
+        "amount": 0.77,
+        "unitName": "UG"
+      },
+      {
+        "number": "421",
+        "name": "Choline, total",
+        "amount": 80.7,
+        "unitName": "MG"
+      },
+      {
+        "number": "430",
+        "name": "Vitamin K (phylloquinone)",
+        "amount": 33.8,
+        "unitName": "UG"
+      },
+      {
+        "number": "431",
+        "name": "Folic acid",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "432",
+        "name": "Folate, food",
+        "amount": 5,
+        "unitName": "UG"
+      },
+      {
+        "number": "435",
+        "name": "Folate, DFE",
+        "amount": 5,
+        "unitName": "UG"
+      },
+      {
+        "number": "573",
+        "name": "Vitamin E, added",
+        "amount": 0,
+        "unitName": "MG"
+      },
+      {
+        "number": "578",
+        "name": "Vitamin B-12, added",
+        "amount": 0,
+        "unitName": "UG"
+      },
+      {
+        "number": "601",
+        "name": "Cholesterol",
+        "amount": 106,
+        "unitName": "MG"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.877,
+        "unitName": "G"
+      },
+      {
+        "number": "607",
+        "name": "SFA 4:0",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "608",
+        "name": "SFA 6:0",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "609",
+        "name": "SFA 8:0",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "610",
+        "name": "SFA 10:0",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "611",
+        "name": "SFA 12:0",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "612",
+        "name": "SFA 14:0",
+        "amount": 0.031,
+        "unitName": "G"
+      },
+      {
+        "number": "613",
+        "name": "SFA 16:0",
+        "amount": 0.624,
+        "unitName": "G"
+      },
+      {
+        "number": "614",
+        "name": "SFA 18:0",
+        "amount": 0.175,
+        "unitName": "G"
+      },
+      {
+        "number": "617",
+        "name": "MUFA 18:1",
+        "amount": 2.24,
+        "unitName": "G"
+      },
+      {
+        "number": "618",
+        "name": "PUFA 18:2",
+        "amount": 1.77,
+        "unitName": "G"
+      },
+      {
+        "number": "619",
+        "name": "PUFA 18:3",
+        "amount": 0.226,
+        "unitName": "G"
+      },
+      {
+        "number": "620",
+        "name": "PUFA 20:4",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "621",
+        "name": "PUFA 22:6 n-3 (DHA)",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "626",
+        "name": "MUFA 16:1",
+        "amount": 0.043,
+        "unitName": "G"
+      },
+      {
+        "number": "627",
+        "name": "PUFA 18:4",
+        "amount": 0.007,
+        "unitName": "G"
+      },
+      {
+        "number": "628",
+        "name": "MUFA 20:1",
+        "amount": 0.035,
+        "unitName": "G"
+      },
+      {
+        "number": "629",
+        "name": "PUFA 20:5 n-3 (EPA)",
+        "amount": 0.061,
+        "unitName": "G"
+      },
+      {
+        "number": "630",
+        "name": "MUFA 22:1",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "631",
+        "name": "PUFA 22:5 n-3 (DPA)",
+        "amount": 0.051,
+        "unitName": "G"
+      },
+      {
+        "number": "645",
+        "name": "Fatty acids, total monounsaturated",
+        "amount": 2.33,
+        "unitName": "G"
+      },
+      {
+        "number": "646",
+        "name": "Fatty acids, total polyunsaturated",
+        "amount": 2.12,
+        "unitName": "G"
+      }
+    ]
+  },
+  {
+    "id": "ing_almond_milk",
+    "provider": "additional-ingredients",
+    "externalId": "ing_almond_milk",
+    "description": "Almond milk, unsweetened",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:dairy-alternative", "allergen:nuts"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 15,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 1.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 60,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_antelope_burger",
+    "provider": "additional-ingredients",
+    "externalId": "ing_antelope_burger",
+    "description": "Antelope burger (patty)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 170,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 22,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 7,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 120,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_apple",
+    "provider": "additional-ingredients",
+    "externalId": "ing_apple",
+    "description": "Apple",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fruit"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 52,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 14,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 2.4,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 10.4,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 1,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_avocado",
+    "provider": "additional-ingredients",
+    "externalId": "ing_avocado",
+    "description": "Avocado",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fruit"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 160,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 8.5,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 14.7,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 6.7,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 7,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_banana",
+    "provider": "additional-ingredients",
+    "externalId": "ing_banana",
+    "description": "Banana",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fruit"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 89,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 22.8,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 2.6,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 12.2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 1,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_bbq_meat_mix",
+    "provider": "additional-ingredients",
+    "externalId": "ing_bbq_meat_mix",
+    "description": "BBQ mixed meats (steak, chicken, pork)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 220,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 26,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 12,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 200,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_brussels",
+    "provider": "additional-ingredients",
+    "externalId": "ing_brussels",
+    "description": "Brussels sprouts",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 43,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 3.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 9,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 3.8,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 2.2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 25,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_chicken_breast",
+    "provider": "additional-ingredients",
+    "externalId": "ing_chicken_breast",
+    "description": "Chicken breast, raw",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 120,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 23,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 2.6,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 70,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_chicken_legs",
+    "provider": "additional-ingredients",
+    "externalId": "ing_chicken_legs",
+    "description": "Chicken legs (roasted, meat and skin)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 215,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 18,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 15,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 85,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_chickpeas",
+    "provider": "additional-ingredients",
+    "externalId": "ing_chickpeas",
+    "description": "Chickpeas (canned/drained)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:legume"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 95,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 5.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 12,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 1.9,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 5.4,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 240,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_cucumber",
+    "provider": "additional-ingredients",
+    "externalId": "ing_cucumber",
+    "description": "Cucumber",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 15,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 3.6,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1.7,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 2,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_egg_whole",
+    "provider": "additional-ingredients",
+    "externalId": "ing_egg_whole",
+    "description": "Egg, whole",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein", "allergen:egg"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 143,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 12.6,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 9.5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.4,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 3.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 142,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_greek_yogurt_lowfat",
+    "provider": "additional-ingredients",
+    "externalId": "ing_greek_yogurt_lowfat",
+    "description": "Greek yoghurt, low fat",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:dairy", "allergen:milk"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 73,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 7,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 1.3,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 40,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_hummus",
+    "provider": "additional-ingredients",
+    "externalId": "ing_hummus",
+    "description": "Hummus",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fat", "allergen:sesame"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 166,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 7.9,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 8.6,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 9.6,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 6,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.6,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 1.4,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 430,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_kiwi",
+    "provider": "additional-ingredients",
+    "externalId": "ing_kiwi",
+    "description": "Kiwi",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fruit"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 61,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 14.7,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 9,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 3,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_lemon_pie",
+    "provider": "additional-ingredients",
+    "externalId": "ing_lemon_pie",
+    "description": "Lemon pie",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": [
+      "category:dessert",
+      "allergen:gluten",
+      "allergen:milk",
+      "allergen:egg"
+    ],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 320,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 4.6,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 46,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 12,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 30,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 6,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 220,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_lentils",
+    "provider": "additional-ingredients",
+    "externalId": "ing_lentils",
+    "description": "Lentils (cooked)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:legume"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 116,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 9,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 20,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.4,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 8,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1.8,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 2,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_lettuce",
+    "provider": "additional-ingredients",
+    "externalId": "ing_lettuce",
+    "description": "Lettuce",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 15,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 2.9,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1.3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.8,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 28,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_mince_beef_5",
+    "provider": "additional-ingredients",
+    "externalId": "ing_mince_beef_5",
+    "description": "Minced beef, 5% fat, cooked",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 176,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 26,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 7.5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 70,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_mushroom",
+    "provider": "additional-ingredients",
+    "externalId": "ing_mushroom",
+    "description": "Mushrooms",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 22,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 3.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 3.3,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 5,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_olive_oil",
+    "provider": "additional-ingredients",
+    "externalId": "ing_olive_oil",
+    "description": "Olive oil",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fat"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 884,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 100,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 14,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 2,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_onion",
+    "provider": "additional-ingredients",
+    "externalId": "ing_onion",
+    "description": "Onion",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 40,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 9.3,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1.7,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 4.2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 4,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_ostrich_burger",
+    "provider": "additional-ingredients",
+    "externalId": "ing_ostrich_burger",
+    "description": "Ostrich burger (patty)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 183,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 19.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 6.6,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 120,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_nandos_chicken",
+    "provider": "additional-ingredients",
+    "externalId": "ing_nandos_chicken",
+    "description": "Peri-peri chicken (restaurant style)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 190,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 27,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 8,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2.3,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 600,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_pizza",
+    "provider": "additional-ingredients",
+    "externalId": "ing_pizza",
+    "description": "Pizza (typical margherita)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:mixed", "allergen:gluten", "allergen:milk"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 266,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 11,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 33,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 10,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 2.3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 4.5,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 600,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_vegan_rashers",
+    "provider": "additional-ingredients",
+    "externalId": "ing_vegan_rashers",
+    "description": "Plant-based rashers (high protein)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein", "allergen:soy"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 134,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 21,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 3.4,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 6.3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 800,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_pork_loin",
+    "provider": "additional-ingredients",
+    "externalId": "ing_pork_loin",
+    "description": "Pork loin (medallions), cooked",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 160,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 27,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 1.6,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 70,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_pork_sausage",
+    "provider": "additional-ingredients",
+    "externalId": "ing_pork_sausage",
+    "description": "Pork sausages",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 301,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 12,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 27,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 10,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 800,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_potato",
+    "provider": "additional-ingredients",
+    "externalId": "ing_potato",
+    "description": "Potato",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 77,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 17,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 2.2,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.8,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 6,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_prawns",
+    "provider": "additional-ingredients",
+    "externalId": "ing_prawns",
+    "description": "Prawns, cooked",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein", "allergen:shellfish"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 99,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 24,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 150,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_quinoa_dry",
+    "provider": "additional-ingredients",
+    "externalId": "ing_quinoa_dry",
+    "description": "Quinoa, dry",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 368,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 14.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 64.2,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 6.1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 7,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 5,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_ribeye",
+    "provider": "additional-ingredients",
+    "externalId": "ing_ribeye",
+    "description": "Ribeye steak, grilled",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 291,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 25,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 21,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 9,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 75,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_rice_dry",
+    "provider": "additional-ingredients",
+    "externalId": "ing_rice_dry",
+    "description": "Rice, dry (white)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 365,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 7.1,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 80,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1.3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 5,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_salmon",
+    "provider": "additional-ingredients",
+    "externalId": "ing_salmon",
+    "description": "Salmon, cooked",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein", "allergen:fish"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 208,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 20,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 13,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 3.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 60,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_nandos_side",
+    "provider": "additional-ingredients",
+    "externalId": "ing_nandos_side",
+    "description": "Side (chips or similar)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 280,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 35,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 12,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 1,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 350,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_ham_smoked",
+    "provider": "additional-ingredients",
+    "externalId": "ing_ham_smoked",
+    "description": "Smoked cured ham",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 125,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 16.8,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 4.4,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0.5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 1.4,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 1200,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_soy_milk",
+    "provider": "additional-ingredients",
+    "externalId": "ing_soy_milk",
+    "description": "Soya milk, unsweetened",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:dairy-alternative", "allergen:soy"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 33,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 3.3,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0.7,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 1.8,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0.6,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.3,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 50,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_sweet_potato",
+    "provider": "additional-ingredients",
+    "externalId": "ing_sweet_potato",
+    "description": "Sweet potato",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 86,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.6,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 20.1,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.1,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 4.2,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 55,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_corn",
+    "provider": "additional-ingredients",
+    "externalId": "ing_corn",
+    "description": "Sweetcorn (drained)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 96,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 3.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 21,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 1.5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 2.4,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 4.5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 250,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_tomato",
+    "provider": "additional-ingredients",
+    "externalId": "ing_tomato",
+    "description": "Tomato",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 18,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 0.9,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 3.9,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1.2,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 2.6,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 5,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_passata",
+    "provider": "additional-ingredients",
+    "externalId": "ing_passata",
+    "description": "Tomato passata",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:vegetable"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 29,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 1.4,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 5,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 1.5,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 3.9,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 20,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_tuna",
+    "provider": "additional-ingredients",
+    "externalId": "ing_tuna",
+    "description": "Tuna (in spring water, drained)",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:protein", "allergen:fish"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 116,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 26,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 0.8,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 300,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_walnuts",
+    "provider": "additional-ingredients",
+    "externalId": "ing_walnuts",
+    "description": "Walnuts",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:fat", "allergen:nuts"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 654,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 15.2,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 13.7,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 65.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 6.7,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 2.6,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 6.1,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 2,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_wrap",
+    "provider": "additional-ingredients",
+    "externalId": "ing_wrap",
+    "description": "Wheat wrap/tortilla",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb", "allergen:gluten"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 310,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 8,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 51,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 7.5,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 3,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 600,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_whey",
+    "provider": "additional-ingredients",
+    "externalId": "ing_whey",
+    "description": "Whey protein powder",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:supplement", "allergen:milk"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 400,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 80,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 7,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 6,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 0,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 2,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 400,
+        "unitName": "MG"
+      }
+    ]
+  },
+  {
+    "id": "ing_bread_wholegrain",
+    "provider": "additional-ingredients",
+    "externalId": "ing_bread_wholegrain",
+    "description": "Wholegrain bread",
+    "dataType": "Additional ingredient",
+    "publicationDate": "2026-01-04",
+    "tags": ["category:carb", "allergen:gluten"],
+    "foodNutrients": [
+      {
+        "number": "208",
+        "name": "Energy",
+        "amount": 247,
+        "unitName": "KCAL"
+      },
+      {
+        "number": "203",
+        "name": "Protein",
+        "amount": 10,
+        "unitName": "G"
+      },
+      {
+        "number": "205",
+        "name": "Carbohydrate, by difference",
+        "amount": 41,
+        "unitName": "G"
+      },
+      {
+        "number": "204",
+        "name": "Total lipid (fat)",
+        "amount": 4.2,
+        "unitName": "G"
+      },
+      {
+        "number": "291",
+        "name": "Fiber, total dietary",
+        "amount": 7,
+        "unitName": "G"
+      },
+      {
+        "number": "269",
+        "name": "Total Sugars",
+        "amount": 5,
+        "unitName": "G"
+      },
+      {
+        "number": "606",
+        "name": "Fatty acids, total saturated",
+        "amount": 0.8,
+        "unitName": "G"
+      },
+      {
+        "number": "307",
+        "name": "Sodium, Na",
+        "amount": 430,
+        "unitName": "MG"
+      }
     ]
   }
 ]

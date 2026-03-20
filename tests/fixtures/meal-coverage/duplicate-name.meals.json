@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "source": "fixture"
+  },
+  "meals": [
+    {
+      "id": "meal_0001",
+      "name": "Avocado and Boiled Eggs",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": ["Slice the avocado.", "Boil the eggs."],
+      "nutrition": {
+        "kcal": 303,
+        "proteinG": 14.6,
+        "carbsG": 9.2,
+        "fatG": 24.2,
+        "fiberG": 6.7,
+        "sugarG": 1.4,
+        "saturatedFatG": 5.2,
+        "sodiumMg": 147,
+        "saltG": 0.37
+      },
+      "tags": ["breakfast"],
+      "ingredients": [
+        {
+          "ingredientId": "ing_avocado",
+          "amountG": 100
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100
+        }
+      ]
+    },
+    {
+      "id": "meal_0002",
+      "name": "  avocado   and BOILED eggs  ",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": ["Duplicate by normalized name."],
+      "nutrition": {
+        "kcal": 303,
+        "proteinG": 14.6,
+        "carbsG": 9.2,
+        "fatG": 24.2,
+        "fiberG": 6.7,
+        "sugarG": 1.4,
+        "saturatedFatG": 5.2,
+        "sodiumMg": 147,
+        "saltG": 0.37
+      },
+      "tags": ["breakfast"],
+      "ingredients": [
+        {
+          "ingredientId": "ing_avocado",
+          "amountG": 100
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100
+        }
+      ]
+    }
+  ]
+}

@@ -2,16 +2,14 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
   createJsonShardedDatabaseAdapter,
+  FoodSyncResult,
   FoodSyncOptions,
   JsonShardedDatabaseAdapterOptions,
   LocalDatabaseAdapter,
   DataSourceAdapter,
   syncFoodsWithDefaults
 } from './sync'
-import {
-  createDefaultProviderRegistry,
-  ProviderRegistry
-} from './providers'
+import { createDefaultProviderRegistry, ProviderRegistry } from './providers'
 
 const DEFAULT_PAGE_SIZE = 200
 const DEFAULT_THROTTLE_MS = 1500
@@ -25,20 +23,40 @@ export interface SyncFoodsOptions extends FoodSyncOptions {
   databaseOptions?: JsonShardedDatabaseAdapterOptions
 }
 
+function summariseRuns(runs: FoodSyncResult[]) {
+  return {
+    runs,
+    totalImported: runs.reduce((total, run) => total + run.totalImported, 0)
+  }
+}
+
 export async function syncFoods(options: SyncFoodsOptions = {}) {
   const registry = options.providerRegistry ?? createDefaultProviderRegistry()
-  const providerId = options.providerId ?? registry.getDefaultProviderId()
+  const database =
+    options.database ??
+    createJsonShardedDatabaseAdapter(options.databaseOptions)
+  const dataSources = options.dataSource
+    ? [options.dataSource]
+    : options.providerId
+      ? [registry.createAdapter(options.providerId, options.providerOptions)]
+      : registry
+          .list()
+          .map((provider) =>
+            registry.createAdapter(provider.id, options.providerOptions)
+          )
 
-  const dataSource =
-    options.dataSource ?? registry.createAdapter(providerId, options.providerOptions)
+  const runs: FoodSyncResult[] = []
 
-  const database = options.database ?? createJsonShardedDatabaseAdapter(options.databaseOptions)
+  for (const dataSource of dataSources) {
+    const run = await syncFoodsWithDefaults(dataSource, database, {
+      pageSize: options.pageSize ?? DEFAULT_PAGE_SIZE,
+      throttleMs: options.throttleMs ?? DEFAULT_THROTTLE_MS,
+      logger: options.logger ?? console
+    })
+    runs.push(run)
+  }
 
-  return syncFoodsWithDefaults(dataSource, database, {
-    pageSize: options.pageSize ?? DEFAULT_PAGE_SIZE,
-    throttleMs: options.throttleMs ?? DEFAULT_THROTTLE_MS,
-    logger: options.logger ?? console
-  })
+  return summariseRuns(runs)
 }
 
 function isExecutedDirectly() {
