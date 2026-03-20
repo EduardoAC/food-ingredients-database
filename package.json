@@ -1,6 +1,6 @@
 {
   "name": "food-ingredients-database",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An open food ingredients and nutrition database for developers. Includes detailed ingredient data, calories, and nutritional values — perfect for building recipe apps, meal planners, calorie calculators, and health tracking applications.",
   "homepage": "https://github.com/EduardoAC/food-ingredients-database#readme",
   "bugs": {

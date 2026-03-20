@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/EduardoAC/food-ingredients-database/compare/v1.0.0...v1.0.1) (2026-03-20)
+
+
+### Bug Fixes
+
+* format for changelog ([#4](https://github.com/EduardoAC/food-ingredients-database/issues/4)) ([c75e208](https://github.com/EduardoAC/food-ingredients-database/commit/c75e2087936077d4762991e7a757f79fdfac1d96))
+* migrate to trusted packages ([#5](https://github.com/EduardoAC/food-ingredients-database/issues/5)) ([8737ea6](https://github.com/EduardoAC/food-ingredients-database/commit/8737ea662cad6c882c3ad7a1c5c7a5dbb4eefa6b))
+* restore bundled shard loading and build config ([#3](https://github.com/EduardoAC/food-ingredients-database/issues/3)) ([5e89fb7](https://github.com/EduardoAC/food-ingredients-database/commit/5e89fb749db70c33b5197aefc74943d96f5e5b8b))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. The format is based on [Semantic Versioning](https://semver.org/), and releases are automated via [semantic-release](https://github.com/semantic-release/semantic-release).
