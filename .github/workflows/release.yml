@@ -13,10 +13,12 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      id-token: write # Required for npm trusted publishing via GitHub Actions OIDC.
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           lfs: true
 
       - name: Setup Node.js
@@ -49,6 +51,7 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          # Maintainer note: use the built-in token for GitHub release/git operations.
+          # npm publishing is handled via trusted publishing, so do not add NPM_TOKEN here.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
