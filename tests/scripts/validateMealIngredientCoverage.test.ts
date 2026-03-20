@@ -33,7 +33,7 @@ function parseJsonOutput(stdout: string) {
   return JSON.parse(stdout)
 }
 
-describe('validate-meal-ingredient-coverage script', () => {
+describe('validate-meal-ingredient-coverage source validator', () => {
   test('reports importable meals in human-readable mode', () => {
     const result = runValidator([
       '--meals',
@@ -43,8 +43,9 @@ describe('validate-meal-ingredient-coverage script', () => {
     ])
 
     expect(result.status).toBe(0)
+    expect(result.stdout).toContain('[meal-coverage] Source validation summary')
     expect(result.stdout).toContain('[meal-coverage] Importable: 2')
-    expect(result.stdout).toContain('[meal-coverage] Skipped duplicates: 0')
+    expect(result.stdout).toContain('[meal-coverage] Duplicate meal names: 0')
     expect(result.stdout).toContain(
       '[meal-coverage] Invalid ingredient mismatches: 0'
     )
@@ -52,7 +53,7 @@ describe('validate-meal-ingredient-coverage script', () => {
     expect(result.stdout).toContain('[meal-coverage] Used ingredient ids: 3')
   })
 
-  test('skips duplicates by normalized meal name and preserves ingredient references', () => {
+  test('fails duplicate normalised meal names clearly', () => {
     const result = runValidator([
       '--meals',
       fixturePath('duplicate-name.meals.json'),
@@ -65,14 +66,22 @@ describe('validate-meal-ingredient-coverage script', () => {
 
     const payload = parseJsonOutput(result.stdout)
     expect(payload.summary.importable).toBe(1)
-    expect(payload.summary.skippedDuplicates).toBe(1)
+    expect(payload.summary.duplicateMealNames).toBe(1)
     expect(payload.summary.invalidIngredientMismatch).toBe(0)
     expect(payload.mealStatuses[0].status).toBe('importable')
-    expect(payload.mealStatuses[1].status).toBe('skippedDuplicate')
+    expect(payload.mealStatuses[1].status).toBe('invalidDuplicateMealName')
     expect(payload.mealStatuses[0].ingredients).toEqual([
       { ingredientId: 'ing_avocado', amountG: 100 },
       { ingredientId: 'ing_egg_whole', amountG: 100 }
     ])
+    expect(payload.mealStatuses[1].issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'meal_duplicate_name',
+          duplicatePolicy: 'fail-on-normalised-name-collision'
+        })
+      ])
+    )
     expect(
       payload.mealStatuses[0].ingredients.every(
         (ingredient: { ingredientId: string; amountG: number }) =>

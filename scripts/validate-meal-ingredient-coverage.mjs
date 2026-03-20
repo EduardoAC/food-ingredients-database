@@ -15,7 +15,7 @@ const ALLOWED_SLOTS = Object.freeze([
   'dessert'
 ])
 
-const DUPLICATE_STRATEGY = 'skip-later-by-normalized-name'
+const DUPLICATE_POLICY = 'fail-on-normalised-name-collision'
 const WARNING_DELTA_THRESHOLD = 0.5
 
 const NUTRIENT_FIELDS = Object.freeze([
@@ -82,7 +82,7 @@ function createEmptySummary(totalMeals = 0, totalIngredients = 0) {
   return {
     totalMeals,
     importable: 0,
-    skippedDuplicates: 0,
+    duplicateMealNames: 0,
     invalidIngredientMismatch: 0,
     invalidOther: 0,
     nutritionWarnings: 0,
@@ -90,7 +90,7 @@ function createEmptySummary(totalMeals = 0, totalIngredients = 0) {
     uniqueIngredientIds: totalIngredients,
     usedIngredientIds: 0,
     unusedIngredientIds: [],
-    duplicateStrategy: DUPLICATE_STRATEGY,
+    duplicatePolicy: DUPLICATE_POLICY,
     allowedSlots: [...ALLOWED_SLOTS],
     nutrientNumberMapping: NUTRIENT_NUMBER_MAPPING
   }
@@ -168,11 +168,19 @@ function parseArgs(argv) {
 }
 
 function validateIngredientRecord(ingredient, ingredientIndex, index) {
-  if (!ingredient || typeof ingredient !== 'object' || Array.isArray(ingredient)) {
+  if (
+    !ingredient ||
+    typeof ingredient !== 'object' ||
+    Array.isArray(ingredient)
+  ) {
     return [
-      createIssue('ingredient_record_invalid', 'Ingredient entry must be an object.', {
-        ingredientIndex: index
-      })
+      createIssue(
+        'ingredient_record_invalid',
+        'Ingredient entry must be an object.',
+        {
+          ingredientIndex: index
+        }
+      )
     ]
   }
 
@@ -203,9 +211,9 @@ function validateIngredientRecord(ingredient, ingredientIndex, index) {
     return issues
   }
 
-  const invalidFields = NUTRIENT_FIELDS.map(([, ingredientField]) => ingredientField).filter(
-    (field) => !isFiniteNumber(ingredient[field])
-  )
+  const invalidFields = NUTRIENT_FIELDS.map(
+    ([, ingredientField]) => ingredientField
+  ).filter((field) => !isFiniteNumber(ingredient[field]))
 
   if (invalidFields.length > 0) {
     issues.push(
@@ -296,7 +304,11 @@ function computeMealNutrition(ingredientRefs, ingredientIndex) {
   for (const ingredientRef of ingredientRefs) {
     const ingredient = ingredientIndex.get(ingredientRef.ingredientId)
 
-    if (!ingredient || !isFiniteNumber(ingredientRef.amountG) || ingredientRef.amountG <= 0) {
+    if (
+      !ingredient ||
+      !isFiniteNumber(ingredientRef.amountG) ||
+      ingredientRef.amountG <= 0
+    ) {
       continue
     }
 
@@ -316,7 +328,11 @@ function computeMealNutrition(ingredientRefs, ingredientIndex) {
 }
 
 function compareMealNutrition(sourceNutrition, computedNutrition) {
-  if (!sourceNutrition || typeof sourceNutrition !== 'object' || Array.isArray(sourceNutrition)) {
+  if (
+    !sourceNutrition ||
+    typeof sourceNutrition !== 'object' ||
+    Array.isArray(sourceNutrition)
+  ) {
     return null
   }
 
@@ -328,7 +344,9 @@ function compareMealNutrition(sourceNutrition, computedNutrition) {
       continue
     }
 
-    const delta = roundTo(sourceNutrition[nutritionField] - computedNutrition[nutritionField])
+    const delta = roundTo(
+      sourceNutrition[nutritionField] - computedNutrition[nutritionField]
+    )
     deltas[nutritionField] = delta
 
     if (Math.abs(delta) > WARNING_DELTA_THRESHOLD) {
@@ -360,7 +378,8 @@ function compareMealNutrition(sourceNutrition, computedNutrition) {
 
 function validateMealRecord(meal, ingredientIndex, seenMealNames) {
   const mealId = typeof meal?.id === 'string' ? meal.id.trim() : ''
-  const name = typeof meal?.name === 'string' ? normalizeWhitespace(meal.name) : ''
+  const name =
+    typeof meal?.name === 'string' ? normalizeWhitespace(meal.name) : ''
   const normalizedName = name ? normalizeMealName(name) : ''
   const normalizedSlot =
     typeof meal?.slot === 'string' ? normalizeSlot(meal.slot) : ''
@@ -395,7 +414,9 @@ function validateMealRecord(meal, ingredientIndex, seenMealNames) {
   }
 
   if (!name) {
-    result.issues.push(createIssue('meal_name_missing', 'Meal name is required.'))
+    result.issues.push(
+      createIssue('meal_name_missing', 'Meal name is required.')
+    )
   }
 
   if (!Array.isArray(meal.ingredients) || ingredientRefs.length === 0) {
@@ -412,13 +433,13 @@ function validateMealRecord(meal, ingredientIndex, seenMealNames) {
   }
 
   if (seenMealNames.has(normalizedName)) {
-    result.status = 'skippedDuplicate'
+    result.status = 'invalidDuplicateMealName'
     result.issues.push(
       createIssue(
         'meal_duplicate_name',
-        `Meal "${name}" was skipped because its normalized name is already present.`,
+        `Meal "${name}" duplicates an existing normalised meal name.`,
         {
-          duplicateStrategy: DUPLICATE_STRATEGY
+          duplicatePolicy: DUPLICATE_POLICY
         }
       )
     )
@@ -502,8 +523,14 @@ function validateMealRecord(meal, ingredientIndex, seenMealNames) {
     return result
   }
 
-  const computedNutrition = computeMealNutrition(ingredientRefs, ingredientIndex)
-  const nutritionComparison = compareMealNutrition(meal.nutrition, computedNutrition)
+  const computedNutrition = computeMealNutrition(
+    ingredientRefs,
+    ingredientIndex
+  )
+  const nutritionComparison = compareMealNutrition(
+    meal.nutrition,
+    computedNutrition
+  )
 
   result.status = 'importable'
   result.nutritionComparison = nutritionComparison
@@ -539,13 +566,19 @@ function validateMealsDocument(document, ingredientIndex) {
 
   const mealStatuses = []
   const seenMealNames = new Set()
-  const summary = createEmptySummary(document.meals.length, ingredientIndex.size)
+  const summary = createEmptySummary(
+    document.meals.length,
+    ingredientIndex.size
+  )
   const usedIngredientIds = new Set()
 
   document.meals.forEach((meal) => {
     if (Array.isArray(meal?.ingredients)) {
       meal.ingredients.forEach((ingredient) => {
-        if (typeof ingredient?.ingredientId === 'string' && ingredient.ingredientId.trim()) {
+        if (
+          typeof ingredient?.ingredientId === 'string' &&
+          ingredient.ingredientId.trim()
+        ) {
           usedIngredientIds.add(ingredient.ingredientId.trim())
         }
       })
@@ -556,12 +589,13 @@ function validateMealsDocument(document, ingredientIndex) {
 
     if (mealStatus.status === 'importable') {
       summary.importable += 1
-      summary.nutritionWarnings += mealStatus.nutritionComparison?.warnings.length ?? 0
+      summary.nutritionWarnings +=
+        mealStatus.nutritionComparison?.warnings.length ?? 0
       return
     }
 
-    if (mealStatus.status === 'skippedDuplicate') {
-      summary.skippedDuplicates += 1
+    if (mealStatus.status === 'invalidDuplicateMealName') {
+      summary.duplicateMealNames += 1
       return
     }
 
@@ -590,19 +624,28 @@ export async function validateMealIngredientCoverage(options) {
   const ingredientsPath = path.resolve(options.ingredients)
 
   const mealsDocument = await readJsonDocument(mealsPath, 'meals')
-  const ingredientsDocument = await readJsonDocument(ingredientsPath, 'ingredients')
+  const ingredientsDocument = await readJsonDocument(
+    ingredientsPath,
+    'ingredients'
+  )
 
   const ingredientValidation = validateIngredientsDocument(ingredientsDocument)
-  const mealValidation = ingredientValidation.status === 'valid'
-    ? validateMealsDocument(mealsDocument, ingredientValidation.ingredientIndex)
-    : {
-        summary: createEmptySummary(
-          Array.isArray(mealsDocument?.meals) ? mealsDocument.meals.length : 0,
-          ingredientValidation.totalIngredientRecords
-        ),
-        mealStatuses: [],
-        fatalIssues: ingredientValidation.issues
-      }
+  const mealValidation =
+    ingredientValidation.status === 'valid'
+      ? validateMealsDocument(
+          mealsDocument,
+          ingredientValidation.ingredientIndex
+        )
+      : {
+          summary: createEmptySummary(
+            Array.isArray(mealsDocument?.meals)
+              ? mealsDocument.meals.length
+              : 0,
+            ingredientValidation.totalIngredientRecords
+          ),
+          mealStatuses: [],
+          fatalIssues: ingredientValidation.issues
+        }
 
   return {
     summary: {
@@ -628,19 +671,22 @@ function getExitCode(result) {
     return 1
   }
 
-  const { skippedDuplicates, invalidIngredientMismatch, invalidOther } = result.summary
-  return skippedDuplicates > 0 || invalidIngredientMismatch > 0 || invalidOther > 0
+  const { duplicateMealNames, invalidIngredientMismatch, invalidOther } =
+    result.summary
+  return duplicateMealNames > 0 ||
+    invalidIngredientMismatch > 0 ||
+    invalidOther > 0
     ? 1
     : 0
 }
 
 function formatHumanOutput(result) {
   const lines = [
-    '[meal-coverage] Validation summary',
-    `[meal-coverage] Meals source: ${result.sourceFiles.meals}`,
-    `[meal-coverage] Ingredients source: ${result.sourceFiles.ingredients}`,
+    '[meal-coverage] Source validation summary',
+    `[meal-coverage] Meal source: ${result.sourceFiles.meals}`,
+    `[meal-coverage] Ingredient source: ${result.sourceFiles.ingredients}`,
     `[meal-coverage] Importable: ${result.summary.importable}`,
-    `[meal-coverage] Skipped duplicates: ${result.summary.skippedDuplicates}`,
+    `[meal-coverage] Duplicate meal names: ${result.summary.duplicateMealNames}`,
     `[meal-coverage] Invalid ingredient mismatches: ${result.summary.invalidIngredientMismatch}`,
     `[meal-coverage] Invalid other: ${result.summary.invalidOther}`,
     `[meal-coverage] Nutrition warnings: ${result.summary.nutritionWarnings}`,
@@ -648,7 +694,7 @@ function formatHumanOutput(result) {
     `[meal-coverage] Unique ingredient ids: ${result.summary.uniqueIngredientIds}`,
     `[meal-coverage] Used ingredient ids: ${result.summary.usedIngredientIds}`,
     `[meal-coverage] Unused ingredient ids: ${result.summary.unusedIngredientIds.length}`,
-    `[meal-coverage] Duplicate strategy: ${result.summary.duplicateStrategy}`
+    `[meal-coverage] Duplicate policy: ${result.summary.duplicatePolicy}`
   ]
 
   if (result.fatalIssues.length > 0) {
@@ -658,7 +704,9 @@ function formatHumanOutput(result) {
     })
   }
 
-  const flaggedMeals = result.mealStatuses.filter((mealStatus) => mealStatus.status !== 'importable')
+  const flaggedMeals = result.mealStatuses.filter(
+    (mealStatus) => mealStatus.status !== 'importable'
+  )
   if (flaggedMeals.length > 0) {
     lines.push('[meal-coverage] Flagged meals:')
     flaggedMeals.forEach((mealStatus) => {
@@ -692,7 +740,9 @@ export async function run(argv = process.argv.slice(2)) {
   try {
     const options = parseArgs(argv)
     const result = await validateMealIngredientCoverage(options)
-    const output = options.json ? formatJsonOutput(result) : formatHumanOutput(result)
+    const output = options.json
+      ? formatJsonOutput(result)
+      : formatHumanOutput(result)
     console.log(output)
     process.exitCode = getExitCode(result)
     return result
@@ -709,7 +759,11 @@ export async function run(argv = process.argv.slice(2)) {
     }
 
     const wantsJson = argv.includes('--json')
-    console.log(wantsJson ? JSON.stringify(payload, null, 2) : `[meal-coverage] ${error.message}`)
+    console.log(
+      wantsJson
+        ? JSON.stringify(payload, null, 2)
+        : `[meal-coverage] ${error.message}`
+    )
     process.exitCode = error.exitCode
     return payload
   }

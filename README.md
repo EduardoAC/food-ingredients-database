@@ -87,7 +87,107 @@ async function findProteinRichFoods() {
 - `findFoodByExternalId(externalId, options)` – look up by third-party identifier (e.g. the raw FDC id `2706337`).
 - `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults, includeAll })` – text + nutrient filters against the local shard files or bundled fallback (`includeAll` returns the entire result set).
 
-### 6. Developer Scripts
+### 6. Validation Model
+
+Use two validation layers for ingredient coverage work:
+
+- **Source validation**: contributor-facing guard while editing raw ingredient inputs. Run `npm run validate:meal-coverage -- --meals /path/to/meals.json --ingredients /path/to/ingredients.json` to verify raw ingredient ids, per-100g nutrient presence, and meal-source consistency before regenerating fixtures.
+- **Database validation**: canonical CI confidence. The repository commits an imported sharded database snapshot under `tests/fixtures/meal-coverage/database/`, then validates it through `loadLocalFoods({ baseDir })`. Meals are the verification layer that proves the imported ingredients are usable in realistic consumption scenarios.
+
+### 7. Worked Example
+
+```ts
+import fs from 'node:fs/promises'
+import { loadLocalFoods } from 'food-ingredients-database'
+
+const NUTRIENT_NUMBERS = {
+  kcal: '208',
+  proteinG: '203',
+  carbsG: '205',
+  fatG: '204',
+  fiberG: '291',
+  sugarG: '269',
+  saturatedFatG: '606',
+  sodiumMg: '307'
+}
+
+const TOLERANCES = {
+  kcal: 1,
+  proteinG: 0.5,
+  carbsG: 0.5,
+  fatG: 0.5,
+  fiberG: 0.5,
+  sugarG: 0.5,
+  saturatedFatG: 0.5,
+  sodiumMg: 5,
+  saltG: 0.05
+}
+
+const foods = await loadLocalFoods({
+  baseDir: './tests/fixtures/meal-coverage/database'
+})
+const mealsDocument = JSON.parse(
+  await fs.readFile('./tests/fixtures/meal-coverage/meals.json', 'utf-8')
+)
+
+const foodsById = new Map(foods.map((food) => [food.id, food]))
+
+function nutrientAmount(food, number) {
+  return (
+    food.foodNutrients.find((nutrient) => nutrient.number === number)?.amount ??
+    0
+  )
+}
+
+function computeMealNutrition(meal) {
+  const totals = {
+    kcal: 0,
+    proteinG: 0,
+    carbsG: 0,
+    fatG: 0,
+    fiberG: 0,
+    sugarG: 0,
+    saturatedFatG: 0,
+    sodiumMg: 0
+  }
+
+  for (const ingredient of meal.ingredients) {
+    const food = foodsById.get(ingredient.ingredientId)
+    if (!food)
+      throw new Error(`Missing imported food: ${ingredient.ingredientId}`)
+
+    const factor = ingredient.amountG / 100
+    totals.kcal += nutrientAmount(food, NUTRIENT_NUMBERS.kcal) * factor
+    totals.proteinG += nutrientAmount(food, NUTRIENT_NUMBERS.proteinG) * factor
+    totals.carbsG += nutrientAmount(food, NUTRIENT_NUMBERS.carbsG) * factor
+    totals.fatG += nutrientAmount(food, NUTRIENT_NUMBERS.fatG) * factor
+    totals.fiberG += nutrientAmount(food, NUTRIENT_NUMBERS.fiberG) * factor
+    totals.sugarG += nutrientAmount(food, NUTRIENT_NUMBERS.sugarG) * factor
+    totals.saturatedFatG +=
+      nutrientAmount(food, NUTRIENT_NUMBERS.saturatedFatG) * factor
+    totals.sodiumMg += nutrientAmount(food, NUTRIENT_NUMBERS.sodiumMg) * factor
+  }
+
+  return {
+    ...totals,
+    saltG: (totals.sodiumMg / 1000) * 2.5
+  }
+}
+
+for (const meal of mealsDocument.meals) {
+  const computed = computeMealNutrition(meal)
+  for (const [field, tolerance] of Object.entries(TOLERANCES)) {
+    const delta = Math.abs(meal.nutrition[field] - computed[field])
+    if (delta > tolerance) {
+      throw new Error(`${meal.id} exceeded ${field} tolerance: ${delta}`)
+    }
+  }
+}
+```
+
+The integration test in `tests/local/mealCoverageDatabase.test.ts` is the canonical example of this pattern in the repository.
+
+### 8. Developer Scripts
 
 - `npm run lint`
 - `npm run test`
@@ -95,6 +195,7 @@ async function findProteinRichFoods() {
 - `npm run build`
 - `npm run check:bundle`
 - `npm run typecheck`
+- `npm run validate:meal-coverage -- --meals /path/to/meals.json --ingredients /path/to/ingredients.json`
 - `npm run lint-staged -- --help`
 
 ## Directory Structure

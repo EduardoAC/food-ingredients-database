@@ -1,0 +1,1185 @@
+{
+  "meta": {
+    "generatedAt": "2026-01-04T00:00:00+00:00",
+    "source": "Normalised from all_meals_from_chat.json",
+    "count": 31,
+    "ingredientRef": "Use ingredients.json. Meals reference ingredientId + amountG"
+  },
+  "meals": [
+    {
+      "id": "meal_0001",
+      "name": "Avocado and Boiled Eggs",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": [
+        "Boil 2 eggs (about 100 g edible).",
+        "Slice avocado and season.",
+        "Eat together."
+      ],
+      "nutrition": {
+        "kcal": 335.0,
+        "proteinG": 15.0,
+        "carbsG": 10.9,
+        "fatG": 27.1,
+        "fiberG": 8.0,
+        "sugarG": 1.2,
+        "saturatedFatG": 5.6,
+        "sodiumMg": 150.0,
+        "saltG": 0.4
+      },
+      "tags": ["breakfast", "high-protein", "avocado"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_avocado",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0002",
+      "name": "Scrambled Eggs and Smoked Ham",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": [
+        "Scramble 3 eggs in a non-stick pan.",
+        "Serve with sliced ham and tomato."
+      ],
+      "nutrition": {
+        "kcal": 332.5,
+        "proteinG": 33.2,
+        "carbsG": 5.3,
+        "fatG": 18.0,
+        "fiberG": 1.2,
+        "sugarG": 3.6,
+        "saturatedFatG": 5.8,
+        "sodiumMg": 1178.0,
+        "saltG": 2.9
+      },
+      "tags": ["breakfast", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_ham_smoked",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 100.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0003",
+      "name": "Greek Yoghurt, Banana and Walnuts Bowl",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": [
+        "Add yoghurt to a bowl.",
+        "Slice banana on top.",
+        "Add walnuts."
+      ],
+      "nutrition": {
+        "kcal": 387.4,
+        "proteinG": 21.1,
+        "carbsG": 39.4,
+        "fatG": 15.1,
+        "fiberG": 4.1,
+        "sugarG": 25.0,
+        "saturatedFatG": 4.3,
+        "sodiumMg": 102.0,
+        "saltG": 0.3
+      },
+      "tags": ["breakfast", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_greek_yogurt_lowfat",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_banana",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_walnuts",
+          "amountG": 15.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0004",
+      "name": "Protein Shake with Soya Milk",
+      "slot": "mid-morning snack",
+      "servings": 1,
+      "preparationInstructions": [
+        "Shake whey with soya milk for 20 to 30 seconds."
+      ],
+      "nutrition": {
+        "kcal": 202.5,
+        "proteinG": 32.2,
+        "carbsG": 3.9,
+        "fatG": 6.3,
+        "fiberG": 1.5,
+        "sugarG": 1.5,
+        "saturatedFatG": 1.4,
+        "sodiumMg": 245.0,
+        "saltG": 0.6
+      },
+      "tags": ["shake", "quick", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_soy_milk",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_whey",
+          "amountG": 30.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0005",
+      "name": "Protein Shake with Almond Milk",
+      "slot": "mid-morning snack",
+      "servings": 1,
+      "preparationInstructions": [
+        "Shake whey with almond milk for 20 to 30 seconds."
+      ],
+      "nutrition": {
+        "kcal": 165.0,
+        "proteinG": 25.5,
+        "carbsG": 3.0,
+        "fatG": 5.4,
+        "fiberG": 0.6,
+        "sugarG": 2.1,
+        "saturatedFatG": 0.9,
+        "sodiumMg": 300.0,
+        "saltG": 0.8
+      },
+      "tags": ["shake", "quick", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_almond_milk",
+          "amountG": 300.0
+        },
+        {
+          "ingredientId": "ing_whey",
+          "amountG": 30.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0006",
+      "name": "Oyakodon (Chicken and Egg Rice Bowl)",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Cook rice.",
+        "Simmer onion with a splash of soy sauce and water (optional).",
+        "Add chicken pieces until cooked.",
+        "Pour beaten eggs, cover 1 to 2 minutes.",
+        "Serve over rice."
+      ],
+      "nutrition": {
+        "kcal": 610.0,
+        "proteinG": 59.1,
+        "carbsG": 56.1,
+        "fatG": 14.7,
+        "fiberG": 2.1,
+        "sugarG": 3.8,
+        "saturatedFatG": 4.5,
+        "sodiumMg": 274.0,
+        "saltG": 0.7
+      },
+      "tags": ["lunch", "training-day"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_rice_dry",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_chicken_breast",
+          "amountG": 180.0
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 80.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0007",
+      "name": "Beef Chilli (Lean Mince)",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Brown mince in a pan.",
+        "Add onion, cook 3 to 5 minutes.",
+        "Add passata, tomatoes, season with paprika, garlic, chilli powder.",
+        "Simmer 10 to 15 minutes. Add sweetcorn at the end."
+      ],
+      "nutrition": {
+        "kcal": 554.8,
+        "proteinG": 60.2,
+        "carbsG": 42.0,
+        "fatG": 17.1,
+        "fiberG": 8.7,
+        "sugarG": 20.0,
+        "saturatedFatG": 6.2,
+        "sodiumMg": 393.0,
+        "saltG": 1.0
+      },
+      "tags": ["lunch", "batch-cook"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_mince_beef_5",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_corn",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_passata",
+          "amountG": 200.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0008",
+      "name": "Lean Mince with Onion and Tomato (Simple Skillet)",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Brown mince.",
+        "Add onion.",
+        "Add tomato, cook until soft.",
+        "Season."
+      ],
+      "nutrition": {
+        "kcal": 403.0,
+        "proteinG": 54.0,
+        "carbsG": 11.4,
+        "fatG": 15.4,
+        "fiberG": 2.8,
+        "sugarG": 6.4,
+        "saturatedFatG": 6.0,
+        "sodiumMg": 150.0,
+        "saltG": 0.4
+      },
+      "tags": ["dinner", "high-protein", "easy"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_mince_beef_5",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0009",
+      "name": "Prawn Stir Fry with Tomato and Onion",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Cook onion in a little oil.",
+        "Add prawns, then tomato.",
+        "Season with garlic and pepper."
+      ],
+      "nutrition": {
+        "kcal": 293.2,
+        "proteinG": 50.0,
+        "carbsG": 11.8,
+        "fatG": 6.0,
+        "fiberG": 2.8,
+        "sugarG": 6.4,
+        "saturatedFatG": 0.9,
+        "sodiumMg": 310.0,
+        "saltG": 0.8
+      },
+      "tags": ["dinner", "seafood", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_prawns",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_olive_oil",
+          "amountG": 5.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0010",
+      "name": "Tuna Salad with Cucumber, Tomato and Mushrooms",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Chop veg.",
+        "Flake tuna on top.",
+        "Season with lemon, pepper."
+      ],
+      "nutrition": {
+        "kcal": 227.1,
+        "proteinG": 38.4,
+        "carbsG": 17.5,
+        "fatG": 1.9,
+        "fiberG": 4.8,
+        "sugarG": 9.5,
+        "saturatedFatG": 0.4,
+        "sodiumMg": 399.0,
+        "saltG": 1.0
+      },
+      "tags": ["lunch", "low-carb"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_tuna",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_mushroom",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0011",
+      "name": "Pork Medallions with Salad",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Pan-sear pork medallions until cooked.",
+        "Make a salad with lettuce, tomato, cucumber.",
+        "Season lightly."
+      ],
+      "nutrition": {
+        "kcal": 381.5,
+        "proteinG": 57.5,
+        "carbsG": 13.6,
+        "fatG": 10.6,
+        "fiberG": 3.6,
+        "sugarG": 7.1,
+        "saturatedFatG": 3.2,
+        "sodiumMg": 173.0,
+        "saltG": 0.4
+      },
+      "tags": ["dinner", "high-protein", "low-carb"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_pork_loin",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0012",
+      "name": "Salmon with Mixed Salad",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Bake or pan-sear salmon.",
+        "Assemble salad, serve together."
+      ],
+      "nutrition": {
+        "kcal": 477.5,
+        "proteinG": 43.5,
+        "carbsG": 13.6,
+        "fatG": 26.6,
+        "fiberG": 3.6,
+        "sugarG": 7.1,
+        "saturatedFatG": 6.2,
+        "sodiumMg": 153.0,
+        "saltG": 0.4
+      },
+      "tags": ["dinner", "omega-3", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_salmon",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0013",
+      "name": "Salmon and Sweet Potato Plate",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Roast sweet potato cubes.",
+        "Cook salmon.",
+        "Serve with sliced onion on the side or roasted."
+      ],
+      "nutrition": {
+        "kcal": 651.0,
+        "proteinG": 44.5,
+        "carbsG": 54.9,
+        "fatG": 26.3,
+        "fiberG": 8.3,
+        "sugarG": 12.6,
+        "saturatedFatG": 6.2,
+        "sodiumMg": 260.0,
+        "saltG": 0.6
+      },
+      "tags": ["lunch", "training-day"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_salmon",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_sweet_potato",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 50.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0014",
+      "name": "Chicken Legs Tray Bake with Potatoes and Brussels Sprouts",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Roast chicken legs and potatoes at 200°C until cooked.",
+        "Add sprouts for last 15 minutes.",
+        "Serve."
+      ],
+      "nutrition": {
+        "kcal": 826.5,
+        "proteinG": 56.0,
+        "carbsG": 63.4,
+        "fatG": 38.3,
+        "fiberG": 12.6,
+        "sugarG": 8.7,
+        "saturatedFatG": 10.2,
+        "sodiumMg": 268.0,
+        "saltG": 0.7
+      },
+      "tags": ["lunch", "batch-cook"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_chicken_legs",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_potato",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_brussels",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0015",
+      "name": "Ostrich Burger with Salad",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Pan-sear burger until cooked.",
+        "Serve with salad."
+      ],
+      "nutrition": {
+        "kcal": 281.1,
+        "proteinG": 26.8,
+        "carbsG": 18.4,
+        "fatG": 8.5,
+        "fiberG": 3.6,
+        "sugarG": 8.3,
+        "saturatedFatG": 2.4,
+        "sodiumMg": 177.0,
+        "saltG": 0.4
+      },
+      "tags": ["lunch", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_ostrich_burger",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0016",
+      "name": "Antelope Burger with Salad",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Pan-sear antelope burger patties until cooked.",
+        "Serve with salad."
+      ],
+      "nutrition": {
+        "kcal": 469.5,
+        "proteinG": 56.3,
+        "carbsG": 18.4,
+        "fatG": 17.4,
+        "fiberG": 3.6,
+        "sugarG": 8.3,
+        "saturatedFatG": 4.8,
+        "sodiumMg": 321.0,
+        "saltG": 0.8
+      },
+      "tags": ["dinner", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_antelope_burger",
+          "amountG": 240.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0017",
+      "name": "Plant Based Rashers and Eggs Breakfast",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": [
+        "Cook rashers in a non-stick pan.",
+        "Fry or scramble 2 eggs.",
+        "Serve with tomato."
+      ],
+      "nutrition": {
+        "kcal": 321.8,
+        "proteinG": 38.7,
+        "carbsG": 8.7,
+        "fatG": 10.9,
+        "fiberG": 8.8,
+        "sugarG": 3.6,
+        "saturatedFatG": 3.3,
+        "sodiumMg": 1107.0,
+        "saltG": 2.8
+      },
+      "tags": ["breakfast", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_vegan_rashers",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 100.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0018",
+      "name": "Chickpea Salad Bowl",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Rinse chickpeas.",
+        "Chop veg and mix.",
+        "Season with lemon, pepper, optional herbs."
+      ],
+      "nutrition": {
+        "kcal": 259.5,
+        "proteinG": 13.8,
+        "carbsG": 39.9,
+        "fatG": 4.3,
+        "fiberG": 14.2,
+        "sugarG": 10.5,
+        "saturatedFatG": 0.4,
+        "sodiumMg": 492.0,
+        "saltG": 1.2
+      },
+      "tags": ["lunch", "high-fibre", "vegetarian"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_chickpeas",
+          "amountG": 200.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 50.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0019",
+      "name": "Lentil Bowl with Tomato and Onion",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Warm cooked lentils.",
+        "Saute onion lightly.",
+        "Mix with tomato and season."
+      ],
+      "nutrition": {
+        "kcal": 393.2,
+        "proteinG": 24.7,
+        "carbsG": 63.3,
+        "fatG": 6.4,
+        "fiberG": 23.2,
+        "sugarG": 11.8,
+        "saturatedFatG": 1.0,
+        "sodiumMg": 16.0,
+        "saltG": 0.0
+      },
+      "tags": ["dinner", "high-fibre", "vegetarian"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_lentils",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_onion",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_olive_oil",
+          "amountG": 5.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0020",
+      "name": "Quinoa and Veg Bowl with Chicken",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Cook quinoa.",
+        "Cook chicken.",
+        "Mix with chopped veg, season."
+      ],
+      "nutrition": {
+        "kcal": 486.3,
+        "proteinG": 52.3,
+        "carbsG": 49.8,
+        "fatG": 8.8,
+        "fiberG": 6.8,
+        "sugarG": 6.5,
+        "saturatedFatG": 1.7,
+        "sodiumMg": 140.0,
+        "saltG": 0.3
+      },
+      "tags": ["lunch", "training-day"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_quinoa_dry",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_chicken_breast",
+          "amountG": 180.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0021",
+      "name": "Pizza Dinner (Exception)",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Portion guidance: aim for about 300 g total.",
+        "Pair with a big side salad if possible."
+      ],
+      "nutrition": {
+        "kcal": 798.0,
+        "proteinG": 33.0,
+        "carbsG": 99.0,
+        "fatG": 30.0,
+        "fiberG": 6.9,
+        "sugarG": 12.0,
+        "saturatedFatG": 13.5,
+        "sodiumMg": 1800.0,
+        "saltG": 4.5
+      },
+      "tags": ["exception", "dinner"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_pizza",
+          "amountG": 300.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0022",
+      "name": "Nando’s Style Chicken Meal (Exception)",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Treat as a higher-calorie day.",
+        "Keep earlier meals lean and protein-forward."
+      ],
+      "nutrition": {
+        "kcal": 895.0,
+        "proteinG": 73.5,
+        "carbsG": 60.0,
+        "fatG": 38.0,
+        "fiberG": 4.5,
+        "sugarG": 4.0,
+        "saturatedFatG": 8.8,
+        "sodiumMg": 2025.0,
+        "saltG": 5.1
+      },
+      "tags": ["exception", "restaurant"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_nandos_chicken",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_nandos_side",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0023",
+      "name": "Lemon Pie Dessert (Exception)",
+      "slot": "dessert",
+      "servings": 1,
+      "preparationInstructions": [
+        "If you have this, reduce carbs and fats elsewhere that day."
+      ],
+      "nutrition": {
+        "kcal": 320.0,
+        "proteinG": 4.6,
+        "carbsG": 46.0,
+        "fatG": 12.0,
+        "fiberG": 1.0,
+        "sugarG": 30.0,
+        "saturatedFatG": 6.0,
+        "sodiumMg": 220.0,
+        "saltG": 0.6
+      },
+      "tags": ["exception", "dessert"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_lemon_pie",
+          "amountG": 100.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0024",
+      "name": "Greek Yoghurt Snack",
+      "slot": "afternoon snack",
+      "servings": 1,
+      "preparationInstructions": ["Eat straight from the tub or bowl."],
+      "nutrition": {
+        "kcal": 146.0,
+        "proteinG": 14.0,
+        "carbsG": 8.0,
+        "fatG": 4.0,
+        "fiberG": 0.0,
+        "sugarG": 8.0,
+        "saturatedFatG": 2.6,
+        "sodiumMg": 80.0,
+        "saltG": 0.2
+      },
+      "tags": ["snack", "high-protein"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_greek_yogurt_lowfat",
+          "amountG": 200.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0025",
+      "name": "Fruit Snack (Apple)",
+      "slot": "snack",
+      "servings": 1,
+      "preparationInstructions": ["Eat."],
+      "nutrition": {
+        "kcal": 93.6,
+        "proteinG": 0.5,
+        "carbsG": 25.2,
+        "fatG": 0.4,
+        "fiberG": 4.3,
+        "sugarG": 18.7,
+        "saturatedFatG": 0.0,
+        "sodiumMg": 2.0,
+        "saltG": 0.0
+      },
+      "tags": ["snack"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_apple",
+          "amountG": 180.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0026",
+      "name": "Fruit Snack (Kiwi)",
+      "slot": "snack",
+      "servings": 1,
+      "preparationInstructions": ["Eat."],
+      "nutrition": {
+        "kcal": 91.5,
+        "proteinG": 1.7,
+        "carbsG": 22.0,
+        "fatG": 0.8,
+        "fiberG": 4.5,
+        "sugarG": 13.5,
+        "saturatedFatG": 0.0,
+        "sodiumMg": 4.0,
+        "saltG": 0.0
+      },
+      "tags": ["snack"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_kiwi",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0027",
+      "name": "Toast with Hummus, Avocado and Eggs",
+      "slot": "breakfast",
+      "servings": 1,
+      "preparationInstructions": [
+        "Toast bread.",
+        "Spread hummus.",
+        "Top with sliced avocado and 2 boiled eggs."
+      ],
+      "nutrition": {
+        "kcal": 500.2,
+        "proteinG": 22.2,
+        "carbsG": 30.7,
+        "fatG": 32.7,
+        "fiberG": 13.2,
+        "sugarG": 3.5,
+        "saturatedFatG": 6.5,
+        "sodiumMg": 494.0,
+        "saltG": 1.2
+      },
+      "tags": ["breakfast", "avocado"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_bread_wholegrain",
+          "amountG": 40.0
+        },
+        {
+          "ingredientId": "ing_hummus",
+          "amountG": 40.0
+        },
+        {
+          "ingredientId": "ing_avocado",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_egg_whole",
+          "amountG": 100.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0028",
+      "name": "Chicken Wrap with Salad Veg",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Cook chicken, slice.",
+        "Fill wrap with chicken and salad veg.",
+        "Season."
+      ],
+      "nutrition": {
+        "kcal": 481.6,
+        "proteinG": 49.8,
+        "carbsG": 46.4,
+        "fatG": 10.4,
+        "fiberG": 4.9,
+        "sugarG": 7.7,
+        "saturatedFatG": 2.7,
+        "sodiumMg": 571.0,
+        "saltG": 1.4
+      },
+      "tags": ["lunch", "quick"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_wrap",
+          "amountG": 70.0
+        },
+        {
+          "ingredientId": "ing_chicken_breast",
+          "amountG": 180.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 120.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0029",
+      "name": "Prawn Wrap with Salad Veg",
+      "slot": "lunch",
+      "servings": 1,
+      "preparationInstructions": [
+        "Mix prawns with lemon and pepper.",
+        "Fill wrap with salad veg and prawns."
+      ],
+      "nutrition": {
+        "kcal": 414.1,
+        "proteinG": 44.4,
+        "carbsG": 46.7,
+        "fatG": 6.2,
+        "fiberG": 4.9,
+        "sugarG": 7.7,
+        "saturatedFatG": 1.5,
+        "sodiumMg": 670.0,
+        "saltG": 1.7
+      },
+      "tags": ["lunch", "quick", "seafood"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_wrap",
+          "amountG": 70.0
+        },
+        {
+          "ingredientId": "ing_prawns",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 60.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 120.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 120.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0030",
+      "name": "Ribeye Steak with Salad",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Grill or pan-sear steak to preference.",
+        "Serve with salad."
+      ],
+      "nutrition": {
+        "kcal": 789.0,
+        "proteinG": 66.0,
+        "carbsG": 13.6,
+        "fatG": 53.1,
+        "fiberG": 3.6,
+        "sugarG": 7.1,
+        "saturatedFatG": 22.5,
+        "sodiumMg": 220.0,
+        "saltG": 0.6
+      },
+      "tags": ["dinner", "high-protein", "higher-fat"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_ribeye",
+          "amountG": 250.0
+        },
+        {
+          "ingredientId": "ing_lettuce",
+          "amountG": 80.0
+        },
+        {
+          "ingredientId": "ing_tomato",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_cucumber",
+          "amountG": 150.0
+        }
+      ]
+    },
+    {
+      "id": "meal_0031",
+      "name": "BBQ Sausages and Mixed Meats Plate (Exception)",
+      "slot": "dinner",
+      "servings": 1,
+      "preparationInstructions": [
+        "Best effort: prioritise lean pieces first (chicken, steak).",
+        "Keep sides light (salad, veg)."
+      ],
+      "nutrition": {
+        "kcal": 1001.5,
+        "proteinG": 83.0,
+        "carbsG": 8.0,
+        "fatG": 70.5,
+        "fiberG": 0.0,
+        "sugarG": 1.5,
+        "saturatedFatG": 25.0,
+        "sodiumMg": 1700.0,
+        "saltG": 4.2
+      },
+      "tags": ["exception", "bbq"],
+      "isEstimated": true,
+      "ingredients": [
+        {
+          "ingredientId": "ing_pork_sausage",
+          "amountG": 150.0
+        },
+        {
+          "ingredientId": "ing_bbq_meat_mix",
+          "amountG": 250.0
+        }
+      ]
+    }
+  ]
+}
