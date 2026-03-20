@@ -6,7 +6,6 @@ Thanks for your interest in improving the Food Ingredients Database! This guide 
 
 - Node.js version defined in [`.nvmrc`](./.nvmrc) (use `nvm use`)
 - A USDA FoodData Central API key (store in `.env` as `API_KEY` when running syncs)
-- An npm account with publish rights (used only when releasing)
 
 ## Local Setup
 
@@ -48,10 +47,9 @@ Releases are automated through [semantic-release](https://github.com/semantic-re
 
 - Commits merged into `main` trigger the release workflow (`release.yml`).
 - Version, changelog, GitHub release notes, npm publish, and git tags are handled automatically.
-- Releases rely on two secrets:
-  - `NPM_AUTH_TOKEN` – npm token with `publish` permissions
-  - `GITHUB_TOKEN` – provided automatically by GitHub Actions
-- Locally, ensure you export `NPM_AUTH_TOKEN` (the root `.npmrc` resolves it at publish time).
+- Release versions are derived from Conventional Commits.
+
+> Maintainer note: trusted publishing details live in the comments in `.github/workflows/release.yml`.
 
 ## Dependency Updates
 
