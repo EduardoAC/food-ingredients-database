@@ -1,6 +1,11 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import type { LocalFoodItem, LoadLocalFoodsOptions, SearchLocalFoodsOptions } from './types'
+import { bundledIndex, bundledShards } from './bundledShards'
+import type {
+  LocalFoodItem,
+  LoadLocalFoodsOptions,
+  SearchLocalFoodsOptions
+} from './types'
 
 interface PersistedIndexEntry {
   shard: string
@@ -15,6 +20,15 @@ interface PersistedIndex {
 const DEFAULT_BASE_DIR_NAME = 'database/fdc'
 const INDEX_FILE = 'index.json'
 const SHARDS_DIR = 'shards'
+
+async function pathExists(targetPath: string): Promise<boolean> {
+  try {
+    await fs.access(targetPath)
+    return true
+  } catch {
+    return false
+  }
+}
 
 async function readJsonFile<T>(filePath: string, fallback: T): Promise<T> {
   try {
@@ -32,8 +46,12 @@ function normalizeFood(raw: any): LocalFoodItem {
   }
 
   const provider = raw?.provider ?? 'unknown'
-  const externalId = raw?.externalId ?? (raw?.fdcId !== undefined ? String(raw.fdcId) : undefined)
-  const baseId = raw?.id ?? (externalId ? `${provider}:${externalId}` : `${provider}:unknown`)
+  const externalId =
+    raw?.externalId ??
+    (raw?.fdcId !== undefined ? String(raw.fdcId) : undefined)
+  const baseId =
+    raw?.id ??
+    (externalId ? `${provider}:${externalId}` : `${provider}:unknown`)
 
   return {
     id: baseId,
@@ -45,8 +63,8 @@ function normalizeFood(raw: any): LocalFoodItem {
     foodCode: raw?.foodCode,
     tags: raw?.tags ?? [],
     foodNutrients: Array.isArray(raw?.foodNutrients)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ? raw.foodNutrients.map((nutrient: any) => ({
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        raw.foodNutrients.map((nutrient: any) => ({
           number: nutrient?.number ?? nutrient?.id ?? 'unknown',
           name: nutrient?.name ?? 'Unknown',
           amount: nutrient?.amount ?? nutrient?.value ?? 0,
@@ -56,13 +74,16 @@ function normalizeFood(raw: any): LocalFoodItem {
   }
 }
 
-export async function loadLocalFoods(
-  options: LoadLocalFoodsOptions = {}
+function loadBundledFoods(): LocalFoodItem[] {
+  return bundledIndex.shards.flatMap((entry) => {
+    const foods = bundledShards[entry.shard] ?? []
+    return foods.map(normalizeFood)
+  })
+}
+
+async function loadFoodsFromFileSystem(
+  baseDir: string
 ): Promise<LocalFoodItem[]> {
-  const baseDirOption = options.baseDir ?? DEFAULT_BASE_DIR_NAME
-  const baseDir = path.isAbsolute(baseDirOption)
-    ? baseDirOption
-    : path.resolve(process.cwd(), baseDirOption)
   const indexPath = path.resolve(baseDir, INDEX_FILE)
   const shardsDir = path.resolve(baseDir, SHARDS_DIR)
 
@@ -83,6 +104,28 @@ export async function loadLocalFoods(
   }
 
   return foods
+}
+
+export async function loadLocalFoods(
+  options: LoadLocalFoodsOptions = {}
+): Promise<LocalFoodItem[]> {
+  const baseDirOption = options.baseDir ?? DEFAULT_BASE_DIR_NAME
+  const baseDir = path.isAbsolute(baseDirOption)
+    ? baseDirOption
+    : path.resolve(process.cwd(), baseDirOption)
+
+  if (options.baseDir) {
+    return loadFoodsFromFileSystem(baseDir)
+  }
+
+  const hasLocalIndex = await pathExists(path.resolve(baseDir, INDEX_FILE))
+  const hasLocalShardsDir = await pathExists(path.resolve(baseDir, SHARDS_DIR))
+
+  if (hasLocalIndex && hasLocalShardsDir) {
+    return loadFoodsFromFileSystem(baseDir)
+  }
+
+  return loadBundledFoods()
 }
 
 export async function findFoodById(
@@ -136,10 +179,14 @@ export async function searchLocalFoods(
 ): Promise<LocalFoodItem[]> {
   const foods = await loadLocalFoods(options)
   const filtered = foods.filter(
-    (food) => matchesQuery(food, query) && matchesNutrient(food, options.nutrientNumber, options.nutrientName)
+    (food) =>
+      matchesQuery(food, query) &&
+      matchesNutrient(food, options.nutrientNumber, options.nutrientName)
   )
 
-  const sorted = filtered.sort((a, b) => a.description.localeCompare(b.description))
+  const sorted = filtered.sort((a, b) =>
+    a.description.localeCompare(b.description)
+  )
   if (options.includeAll) {
     return sorted
   }

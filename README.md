@@ -82,10 +82,10 @@ async function findProteinRichFoods() {
 
 ### 5. Programmatic Access Helpers
 
-- `loadLocalFoods(options)` – load all foods from shards.
+- `loadLocalFoods(options)` – load all foods from shard files when present, otherwise fall back to the bundled snapshot.
 - `findFoodById(id, options)` – look up by canonical identifier (e.g. `fdc:2706337`).
 - `findFoodByExternalId(externalId, options)` – look up by third-party identifier (e.g. the raw FDC id `2706337`).
-- `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults, includeAll })` – text + nutrient filters (`includeAll` returns the entire result set).
+- `searchLocalFoods(query, { nutrientNumber, nutrientName, maxResults, includeAll })` – text + nutrient filters against the local shard files or bundled fallback (`includeAll` returns the entire result set).
 
 ### 6. Developer Scripts
 

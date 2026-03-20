@@ -1,0 +1,937 @@
+{
+  "fdcId": 169225,
+  "description": "Cucumber, peeled, raw",
+  "dataType": "SR Legacy",
+  "publicationDate": "2019-04-01",
+  "ndbNumber": "11206",
+  "foodNutrients": [
+    {
+      "number": "221",
+      "name": "Alcohol, ethyl",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "601",
+      "name": "Cholesterol",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "418",
+      "name": "Vitamin B-12",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "431",
+      "name": "Folic acid",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "605",
+      "name": "Fatty acids, total trans",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "606",
+      "name": "Fatty acids, total saturated",
+      "amount": 0.078,
+      "unitName": "G",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "612",
+      "name": "SFA 14:0",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "268",
+      "name": "Energy",
+      "amount": 44,
+      "unitName": "kJ",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "208",
+      "name": "Energy",
+      "amount": 10,
+      "unitName": "KCAL",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "613",
+      "name": "SFA 16:0",
+      "amount": 0.058,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "614",
+      "name": "SFA 18:0",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "617",
+      "name": "MUFA 18:1",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "618",
+      "name": "PUFA 18:2",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "619",
+      "name": "PUFA 18:3",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "645",
+      "name": "Fatty acids, total monounsaturated",
+      "amount": 0.01,
+      "unitName": "G",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "646",
+      "name": "Fatty acids, total polyunsaturated",
+      "amount": 0.019,
+      "unitName": "G",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "324",
+      "name": "Vitamin D (D2 + D3), International Units",
+      "amount": 0,
+      "unitName": "IU",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "291",
+      "name": "Fiber, total dietary",
+      "amount": 0.7,
+      "unitName": "G"
+    },
+    {
+      "number": "318",
+      "name": "Vitamin A, IU",
+      "amount": 72,
+      "unitName": "IU",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "417",
+      "name": "Folate, total",
+      "amount": 14,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "320",
+      "name": "Vitamin A, RAE",
+      "amount": 4,
+      "unitName": "UG",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "432",
+      "name": "Folate, food",
+      "amount": 14,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "501",
+      "name": "Tryptophan",
+      "amount": 0.007,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "502",
+      "name": "Threonine",
+      "amount": 0.012,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "506",
+      "name": "Methionine",
+      "amount": 0.012,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "508",
+      "name": "Phenylalanine",
+      "amount": 0.031,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "509",
+      "name": "Tyrosine",
+      "amount": 0.002,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "513",
+      "name": "Alanine",
+      "amount": 0.031,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "515",
+      "name": "Glutamic acid",
+      "amount": 0.204,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "516",
+      "name": "Glycine",
+      "amount": 0.025,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "517",
+      "name": "Proline",
+      "amount": 0.012,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "435",
+      "name": "Folate, DFE",
+      "amount": 14,
+      "unitName": "UG",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "454",
+      "name": "Betaine",
+      "amount": 0.1,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "503",
+      "name": "Isoleucine",
+      "amount": 0.012,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "504",
+      "name": "Leucine",
+      "amount": 0.025,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "505",
+      "name": "Lysine",
+      "amount": 0.025,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "507",
+      "name": "Cystine",
+      "amount": 0.007,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "510",
+      "name": "Valine",
+      "amount": 0.012,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "511",
+      "name": "Arginine",
+      "amount": 0.031,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "512",
+      "name": "Histidine",
+      "amount": 0.002,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "514",
+      "name": "Aspartic acid",
+      "amount": 0.037,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "518",
+      "name": "Serine",
+      "amount": 0.025,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "269",
+      "name": "Total Sugars",
+      "amount": 1.38,
+      "unitName": "G"
+    },
+    {
+      "number": "205",
+      "name": "Carbohydrate, by difference",
+      "amount": 2.16,
+      "unitName": "G",
+      "derivationCode": "NC",
+      "derivationDescription": "Calculated"
+    },
+    {
+      "number": "421",
+      "name": "Choline, total",
+      "amount": 5.7,
+      "unitName": "MG"
+    },
+    {
+      "number": "607",
+      "name": "SFA 4:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "BFFN",
+      "derivationDescription": "Based on another form of the food or similar food; Concentration adjustment; Fat; Retention factors not used"
+    },
+    {
+      "number": "608",
+      "name": "SFA 6:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "BFFN",
+      "derivationDescription": "Based on another form of the food or similar food; Concentration adjustment; Fat; Retention factors not used"
+    },
+    {
+      "number": "313",
+      "name": "Fluoride, F",
+      "amount": 1.3,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "307",
+      "name": "Sodium, Na",
+      "amount": 2,
+      "unitName": "MG"
+    },
+    {
+      "number": "319",
+      "name": "Retinol",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "573",
+      "name": "Vitamin E, added",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "578",
+      "name": "Vitamin B-12, added",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "204",
+      "name": "Total lipid (fat)",
+      "amount": 0.16,
+      "unitName": "G",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "338",
+      "name": "Lutein + zeaxanthin",
+      "amount": 16,
+      "unitName": "UG",
+      "derivationCode": "T",
+      "derivationDescription": "Taken from another source--other tables of food composition"
+    },
+    {
+      "number": "341",
+      "name": "Tocopherol, beta",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "342",
+      "name": "Tocopherol, gamma",
+      "amount": 0.02,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "344",
+      "name": "Tocotrienol, alpha",
+      "amount": 0.04,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "345",
+      "name": "Tocotrienol, beta",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "406",
+      "name": "Niacin",
+      "amount": 0.037,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "410",
+      "name": "Pantothenic acid",
+      "amount": 0.24,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "415",
+      "name": "Vitamin B-6",
+      "amount": 0.051,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "301",
+      "name": "Calcium, Ca",
+      "amount": 14,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "306",
+      "name": "Potassium, K",
+      "amount": 136,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "309",
+      "name": "Zinc, Zn",
+      "amount": 0.17,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "210",
+      "name": "Sucrose",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "211",
+      "name": "Glucose",
+      "amount": 0.63,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "214",
+      "name": "Maltose",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "255",
+      "name": "Water",
+      "amount": 96.7,
+      "unitName": "G",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "262",
+      "name": "Caffeine",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "263",
+      "name": "Theobromine",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "317",
+      "name": "Selenium, Se",
+      "amount": 0.1,
+      "unitName": "UG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "323",
+      "name": "Vitamin E (alpha-tocopherol)",
+      "amount": 0.03,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "610",
+      "name": "SFA 10:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "615",
+      "name": "SFA 20:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "652",
+      "name": "SFA 15:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "672",
+      "name": "PUFA 20:2 n-6 c,c",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "689",
+      "name": "PUFA 20:3",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "620",
+      "name": "PUFA 20:4",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "627",
+      "name": "PUFA 18:4",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "628",
+      "name": "MUFA 20:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "630",
+      "name": "MUFA 22:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "312",
+      "name": "Copper, Cu",
+      "amount": 0.071,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "315",
+      "name": "Manganese, Mn",
+      "amount": 0.073,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "303",
+      "name": "Iron, Fe",
+      "amount": 0.22,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "304",
+      "name": "Magnesium, Mg",
+      "amount": 12,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "305",
+      "name": "Phosphorus, P",
+      "amount": 21,
+      "unitName": "MG",
+      "derivationCode": "JA",
+      "derivationDescription": "Aggregated data involving combinations of data with only source codes 1 and 12 and/or 13"
+    },
+    {
+      "number": "287",
+      "name": "Galactose",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "203",
+      "name": "Protein",
+      "amount": 0.59,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "207",
+      "name": "Ash",
+      "amount": 0.36,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "209",
+      "name": "Starch",
+      "amount": 0.08,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "212",
+      "name": "Fructose",
+      "amount": 0.75,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "213",
+      "name": "Lactose",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "334",
+      "name": "Cryptoxanthin, beta",
+      "amount": 18,
+      "unitName": "UG",
+      "derivationCode": "T",
+      "derivationDescription": "Taken from another source--other tables of food composition"
+    },
+    {
+      "number": "337",
+      "name": "Lycopene",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    },
+    {
+      "number": "343",
+      "name": "Tocopherol, delta",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "346",
+      "name": "Tocotrienol, gamma",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "347",
+      "name": "Tocotrienol, delta",
+      "amount": 0,
+      "unitName": "MG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "401",
+      "name": "Vitamin C, total ascorbic acid",
+      "amount": 3.2,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "404",
+      "name": "Thiamin",
+      "amount": 0.031,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "405",
+      "name": "Riboflavin",
+      "amount": 0.025,
+      "unitName": "MG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "321",
+      "name": "Carotene, beta",
+      "amount": 31,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "322",
+      "name": "Carotene, alpha",
+      "amount": 8,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "609",
+      "name": "SFA 8:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "611",
+      "name": "SFA 12:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "621",
+      "name": "PUFA 22:6 n-3 (DHA)",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "624",
+      "name": "SFA 22:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "625",
+      "name": "MUFA 14:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "626",
+      "name": "MUFA 16:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "629",
+      "name": "PUFA 20:5 n-3 (EPA)",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "631",
+      "name": "PUFA 22:5 n-3 (DPA)",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "653",
+      "name": "SFA 17:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "654",
+      "name": "SFA 24:0",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "687",
+      "name": "MUFA 17:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "697",
+      "name": "MUFA 15:1",
+      "amount": 0,
+      "unitName": "G",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "429",
+      "name": "Vitamin K (Dihydrophylloquinone)",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "A",
+      "derivationDescription": "Analytical"
+    },
+    {
+      "number": "430",
+      "name": "Vitamin K (phylloquinone)",
+      "amount": 7.2,
+      "unitName": "UG",
+      "derivationCode": "JO",
+      "derivationDescription": "Aggregated data involving combinations of data with different source codes when at least one code is not 1, 6, 12, or 13"
+    },
+    {
+      "number": "328",
+      "name": "Vitamin D (D2 + D3)",
+      "amount": 0,
+      "unitName": "UG",
+      "derivationCode": "Z",
+      "derivationDescription": "Assumed zero (Insignificant amount or not naturally occurring in a food, such as fiber in meat)"
+    }
+  ]
+}
