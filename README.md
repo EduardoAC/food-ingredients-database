@@ -5,7 +5,7 @@ An open-source TypeScript SDK + CLI that synchronises USDA FoodData Central (FDC
 ## Features
 
 - **Local-first sharded store**: Foods are persisted under `database/fdc/` as small shard files suitable for Git.
-- **Sync pipeline**: Fetch data from FDC via generated Orval client. Run via CLI (`sync run`) or programmatically (`syncFoods`).
+- **Sync pipeline**: Fetch data from FDC and merge tracked additional ingredients through the same import flow. Run via CLI (`sync run`) or programmatically (`syncFoods`).
 - **Search helpers**: Load and query local shard data with nutrient filters.
 - **Pluggable providers**: Provider registry abstracts third-party APIs (default USDA FDC; more coming).
 - **CLI tooling**: Sync, inspect sync status, and search without writing code.
@@ -39,33 +39,26 @@ npx food-ingredients search --query "abalone" --nutrientNumber 203
 npx food-ingredients search --all --nutrientNumber 203
 ```
 
-All commands support `--dataDir /custom/path` for alternate storage locations. Pass `--provider <id>` to target other integrations as they are added; `fdc` remains the default.
+The default `sync run` path imports the canonical provider set in order: `fdc` first, then the tracked `additional-ingredients` source. All commands support `--dataDir /custom/path` for alternate storage locations. Pass `--provider <id>` for targeted development syncs when you only want one provider.
 
 ### 3. Use It in Code
 
 ```ts
 import {
   syncFoods,
-  createDefaultProviderRegistry,
   createJsonShardedDatabaseAdapter,
   searchLocalFoods
 } from 'food-ingredients-database'
 
 async function refreshFoods() {
-  const registry = createDefaultProviderRegistry()
-  const dataSource = registry.createAdapter('fdc', { pageLimit: 1 })
-  const database = createJsonShardedDatabaseAdapter({
-    baseDir: './database/fdc'
-  })
-
   await syncFoods({
-    providerId: 'fdc',
     providerOptions: { pageLimit: 1 },
     pageSize: 200,
     throttleMs: 0,
     logger: console,
-    dataSource,
-    database
+    database: createJsonShardedDatabaseAdapter({
+      baseDir: './database/fdc'
+    })
   })
 }
 
@@ -77,8 +70,9 @@ async function findProteinRichFoods() {
 
 ### 4. Provider Registry Helpers
 
-- `createDefaultProviderRegistry()` – returns registry seeded with `fdc`. Register additional providers (e.g., OpenFoodFacts) as they become available.
+- `createDefaultProviderRegistry()` – returns registry seeded with the canonical provider set used by the repo refresh flow.
 - `registry.createAdapter('fdc', { pageLimit: 1 })` – instantiate a provider-specific data source via the shared interface.
+- `sync run --provider additional-ingredients` – run the tracked source import on its own when you want a targeted development refresh.
 
 ### 5. Programmatic Access Helpers
 
@@ -91,8 +85,9 @@ async function findProteinRichFoods() {
 
 Use two validation layers for ingredient coverage work:
 
-- **Source validation**: contributor-facing guard while editing raw ingredient inputs. Run `npm run validate:meal-coverage -- --meals /path/to/meals.json --ingredients /path/to/ingredients.json` to verify raw ingredient ids, per-100g nutrient presence, and meal-source consistency before regenerating fixtures.
-- **Database validation**: canonical CI confidence. The repository commits an imported sharded database snapshot under `tests/fixtures/meal-coverage/database/`, then validates it through `loadLocalFoods({ baseDir })`. Meals are the verification layer that proves the imported ingredients are usable in realistic consumption scenarios.
+- **Tracked raw source**: `database/sources/additional-ingredients.json` contains the full meal-linked ingredient source using stable `id` values that resolve directly from `meal.ingredients[].ingredientId` to `food.id`.
+- **Source validation**: contributor-facing guard while editing raw ingredient inputs. Run `npm run validate:meal-coverage -- --meals /path/to/meals.json --ingredients /path/to/ingredients.json` to verify raw ingredient ids, required per-100g nutrient values, and meal-source consistency.
+- **Database validation**: canonical confidence. Import the tracked source through the normal sync flow into `database/fdc`, load the resulting database with `loadLocalFoods({ baseDir })`, and use the meal fixture as the realistic proof layer.
 
 ### 7. Worked Example
 
@@ -124,7 +119,7 @@ const TOLERANCES = {
 }
 
 const foods = await loadLocalFoods({
-  baseDir: './tests/fixtures/meal-coverage/database'
+  baseDir: './database/fdc'
 })
 const mealsDocument = JSON.parse(
   await fs.readFile('./tests/fixtures/meal-coverage/meals.json', 'utf-8')
@@ -189,6 +184,7 @@ The integration test in `tests/local/mealCoverageDatabase.test.ts` is the canoni
 
 ### 8. Developer Scripts
 
+- `npm run sync:foods -- --pageLimit 1 --throttleMs 0`
 - `npm run lint`
 - `npm run test`
 - `npm run test:coverage`
@@ -211,6 +207,8 @@ database/fdc/
   index.json        // Shard index (tracked by git)
   shards/           // Per-shard food data (tracked)
   sync-state.json   // Per-provider sync metadata
+database/sources/
+  additional-ingredients.json // Tracked raw ingredient source imported into database/fdc
 ```
 
 ## Roadmap

@@ -1,17 +1,18 @@
 # Meal Coverage Fixtures
 
-This folder contains two distinct validation layers:
+This folder contains the proof-layer fixtures for meal coverage validation:
 
 - **Source validation fixtures**: small synthetic files used by `tests/scripts/validateMealIngredientCoverage.test.ts` to exercise the developer-only raw source validator.
-- **Database confidence fixtures**: the checked-in `meals.json` file plus the imported sharded database snapshot in `database/`. This is the canonical confidence artefact used by `tests/local/mealCoverageDatabase.test.ts`.
+- **Meal proof fixture**: the checked-in `meals.json` file used by `tests/local/mealCoverageDatabase.test.ts` to prove that the canonical imported database works through the real loader APIs.
 
 ## Source provenance
 
 - Meal source file used for the canonical fixture: `meals.json`
-- Ingredient source file used to build the database snapshot: `ingredients(1).json`
+- Tracked ingredient source: `database/sources/additional-ingredients.json`
+- Canonical imported database: `database/fdc/`
 - Source metadata date: `2026-01-04T00:00:00+00:00`
 - Total meals: `31`
-- Total imported foods: `46`
+- Total tracked meal-linked ingredient ids: `46`
 
 Tracked newly added ingredient ids:
 
@@ -21,17 +22,14 @@ Tracked newly added ingredient ids:
 - `ing_vegan_rashers`
 - `ing_lemon_pie`
 
-The database confidence test also asserts that every imported food id is exercised by at least one meal, so there are no unused imported records in this snapshot.
-
 ## Canonical confidence fixture
 
-The `database/` folder is the canonical confidence fixture. It mirrors the repository's real sharded local database shape:
+`meals.json` is the realistic proof layer only. The canonical confidence path is:
 
-- `index.json`
-- `shards/*.json`
-- `sync-state.json`
-
-Raw `ingredients.json` is intentionally not checked in as the canonical confidence artefact. The confidence path is to validate the imported database representation through `loadLocalFoods({ baseDir })`, then use meals to prove the data works in real consumption scenarios.
+1. import `database/sources/additional-ingredients.json` through the normal sync flow,
+2. write the merged dataset into `database/fdc`,
+3. load `database/fdc` through `loadLocalFoods({ baseDir })`,
+4. validate meal coverage and nutrition recomputation against `meals.json`.
 
 ## Refreshing the fixture
 
@@ -41,13 +39,10 @@ Raw `ingredients.json` is intentionally not checked in as the canonical confiden
    npm run validate:meal-coverage -- --meals /path/to/meals.json --ingredients /path/to/ingredients.json
    ```
 
-2. Regenerate the imported database snapshot and refresh the canonical `meals.json` fixture:
+2. Refresh the canonical database through the normal sync flow:
 
    ```bash
-   node ./scripts/build-meal-coverage-db-fixture.mjs \
-     --ingredients /path/to/ingredients.json \
-     --meals /path/to/meals.json \
-     --output ./tests/fixtures/meal-coverage/database
+   npm run sync:foods -- --pageLimit 1 --throttleMs 0
    ```
 
 3. Run the confidence tests:
@@ -55,4 +50,5 @@ Raw `ingredients.json` is intentionally not checked in as the canonical confiden
    ```bash
    npm test -- tests/scripts/validateMealIngredientCoverage.test.ts
    npm test -- tests/local/mealCoverageDatabase.test.ts
+   npm test -- tests/sync/additionalIngredientsImport.test.ts
    ```

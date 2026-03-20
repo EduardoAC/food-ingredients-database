@@ -1,9 +1,23 @@
 #!/usr/bin/env node
 
+import { createRequire } from 'node:module'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+
+const require = createRequire(import.meta.url)
+const { createJiti } = require('jiti')
+
+const scriptDir = path.dirname(fileURLToPath(import.meta.url))
+const jiti = createJiti(scriptDir)
+const {
+  ADDITIONAL_INGREDIENT_NUTRIENT_NUMBER_MAPPING,
+  ADDITIONAL_INGREDIENT_NUTRIENTS,
+  AdditionalIngredientSourceError,
+  readAdditionalIngredientSourceDocument,
+  validateAdditionalIngredientSourceDocument
+} = jiti(path.resolve(scriptDir, '../src/sync/additionalIngredientsSource.ts'))
 
 const ALLOWED_SLOTS = Object.freeze([
   'breakfast',
@@ -18,27 +32,12 @@ const ALLOWED_SLOTS = Object.freeze([
 const DUPLICATE_POLICY = 'fail-on-normalised-name-collision'
 const WARNING_DELTA_THRESHOLD = 0.5
 
-const NUTRIENT_FIELDS = Object.freeze([
-  ['kcal', 'caloriesPer100g'],
-  ['proteinG', 'proteinPer100g'],
-  ['carbsG', 'carbsPer100g'],
-  ['fatG', 'fatPer100g'],
-  ['fiberG', 'fiberPer100g'],
-  ['sugarG', 'sugarPer100g'],
-  ['saturatedFatG', 'saturatedFatPer100g'],
-  ['sodiumMg', 'sodiumPer100g']
-])
-
-const NUTRIENT_NUMBER_MAPPING = Object.freeze({
-  kcal: '208',
-  proteinG: '203',
-  fatG: '204',
-  carbsG: '205',
-  fiberG: '291',
-  sugarG: '269',
-  saturatedFatG: '606',
-  sodiumMg: '307'
-})
+const NUTRIENT_FIELDS = Object.freeze(
+  ADDITIONAL_INGREDIENT_NUTRIENTS.map(({ mealField, sourceField }) => [
+    mealField,
+    sourceField
+  ])
+)
 
 class CliExitError extends Error {
   constructor(message, exitCode, code) {
@@ -92,7 +91,7 @@ function createEmptySummary(totalMeals = 0, totalIngredients = 0) {
     unusedIngredientIds: [],
     duplicatePolicy: DUPLICATE_POLICY,
     allowedSlots: [...ALLOWED_SLOTS],
-    nutrientNumberMapping: NUTRIENT_NUMBER_MAPPING
+    nutrientNumberMapping: ADDITIONAL_INGREDIENT_NUTRIENT_NUMBER_MAPPING
   }
 }
 
@@ -116,6 +115,23 @@ async function readJsonDocument(filePath, label) {
       2,
       `${label}_json_parse_failed`
     )
+  }
+}
+
+async function readIngredientSourceDocument(filePath) {
+  try {
+    const { document } = await readAdditionalIngredientSourceDocument(filePath)
+    return document
+  } catch (error) {
+    if (!(error instanceof AdditionalIngredientSourceError)) {
+      throw error
+    }
+
+    if (error.code === 'read_failed' || error.code === 'json_parse_failed') {
+      throw new CliExitError(error.message, 2, `ingredients_${error.code}`)
+    }
+
+    throw error
   }
 }
 
@@ -166,122 +182,6 @@ function parseArgs(argv) {
 
   return options
 }
-
-function validateIngredientRecord(ingredient, ingredientIndex, index) {
-  if (
-    !ingredient ||
-    typeof ingredient !== 'object' ||
-    Array.isArray(ingredient)
-  ) {
-    return [
-      createIssue(
-        'ingredient_record_invalid',
-        'Ingredient entry must be an object.',
-        {
-          ingredientIndex: index
-        }
-      )
-    ]
-  }
-
-  const issues = []
-  const ingredientId =
-    typeof ingredient.id === 'string' ? ingredient.id.trim() : ''
-
-  if (!ingredientId) {
-    issues.push(
-      createIssue('ingredient_id_missing', 'Ingredient id is required.', {
-        ingredientIndex: index
-      })
-    )
-    return issues
-  }
-
-  if (ingredientIndex.has(ingredientId)) {
-    issues.push(
-      createIssue(
-        'ingredient_id_duplicate',
-        `Ingredient id "${ingredientId}" appears more than once in the ingredient source.`,
-        {
-          ingredientId,
-          ingredientIndex: index
-        }
-      )
-    )
-    return issues
-  }
-
-  const invalidFields = NUTRIENT_FIELDS.map(
-    ([, ingredientField]) => ingredientField
-  ).filter((field) => !isFiniteNumber(ingredient[field]))
-
-  if (invalidFields.length > 0) {
-    issues.push(
-      createIssue(
-        'ingredient_nutrition_invalid',
-        `Ingredient "${ingredientId}" is missing valid per-100g numeric values for: ${invalidFields.join(', ')}.`,
-        {
-          ingredientId,
-          ingredientIndex: index,
-          invalidFields
-        }
-      )
-    )
-    return issues
-  }
-
-  ingredientIndex.set(ingredientId, {
-    ...ingredient,
-    id: ingredientId
-  })
-
-  return issues
-}
-
-function validateIngredientsDocument(document) {
-  if (!document || typeof document !== 'object' || Array.isArray(document)) {
-    return {
-      status: 'invalid',
-      issues: [
-        createIssue(
-          'ingredient_source_invalid',
-          'Ingredient source must be a JSON object with an "ingredients" array.'
-        )
-      ],
-      ingredientIndex: new Map(),
-      totalIngredientRecords: 0
-    }
-  }
-
-  if (!Array.isArray(document.ingredients)) {
-    return {
-      status: 'invalid',
-      issues: [
-        createIssue(
-          'ingredient_source_shape_invalid',
-          'Ingredient source must include an "ingredients" array.'
-        )
-      ],
-      ingredientIndex: new Map(),
-      totalIngredientRecords: 0
-    }
-  }
-
-  const issues = []
-  const ingredientIndex = new Map()
-
-  document.ingredients.forEach((ingredient, index) => {
-    issues.push(...validateIngredientRecord(ingredient, ingredientIndex, index))
-  })
-
-  return {
-    status: issues.length === 0 ? 'valid' : 'invalid',
-    issues,
-    ingredientIndex,
-    totalIngredientRecords: document.ingredients.length
-  }
-}
-
 function getMealIngredientRefs(meal) {
   if (!Array.isArray(meal?.ingredients)) {
     return []
@@ -624,12 +524,11 @@ export async function validateMealIngredientCoverage(options) {
   const ingredientsPath = path.resolve(options.ingredients)
 
   const mealsDocument = await readJsonDocument(mealsPath, 'meals')
-  const ingredientsDocument = await readJsonDocument(
-    ingredientsPath,
-    'ingredients'
-  )
+  const ingredientsDocument =
+    await readIngredientSourceDocument(ingredientsPath)
 
-  const ingredientValidation = validateIngredientsDocument(ingredientsDocument)
+  const ingredientValidation =
+    validateAdditionalIngredientSourceDocument(ingredientsDocument)
   const mealValidation =
     ingredientValidation.status === 'valid'
       ? validateMealsDocument(

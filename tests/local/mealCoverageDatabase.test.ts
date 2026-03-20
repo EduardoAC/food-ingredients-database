@@ -6,7 +6,15 @@ import { loadLocalFoods } from '../../src/local'
 
 const testDir = path.dirname(fileURLToPath(import.meta.url))
 const fixtureDir = path.resolve(testDir, '..', 'fixtures', 'meal-coverage')
-const fixtureDatabaseDir = path.resolve(fixtureDir, 'database')
+const mainDatabaseDir = path.resolve(testDir, '..', '..', 'database', 'fdc')
+const additionalIngredientsPath = path.resolve(
+  testDir,
+  '..',
+  '..',
+  'database',
+  'sources',
+  'additional-ingredients.json'
+)
 const mealsFixturePath = path.resolve(fixtureDir, 'meals.json')
 
 const NUTRIENT_NUMBERS = Object.freeze({
@@ -60,6 +68,16 @@ function roundTo(value: number, decimals = 2) {
 async function loadMealFixtures() {
   const document = JSON.parse(await fs.readFile(mealsFixturePath, 'utf-8'))
   return document.meals as MealFixture[]
+}
+
+async function loadAdditionalIngredientIds() {
+  const document = JSON.parse(
+    await fs.readFile(additionalIngredientsPath, 'utf-8')
+  ) as {
+    ingredients: Array<{ id: string }>
+  }
+
+  return document.ingredients.map((ingredient) => ingredient.id)
 }
 
 function getNutrientAmount(
@@ -122,12 +140,14 @@ function computeMealNutrition(
 }
 
 describe('meal coverage database confidence', () => {
-  test('loads the imported fixture database and resolves all meals through local DB APIs', async () => {
-    const foods = await loadLocalFoods({ baseDir: fixtureDatabaseDir })
-    const meals = await loadMealFixtures()
+  test('loads the canonical imported database and resolves all meals through local DB APIs', async () => {
+    const [foods, meals, additionalIngredientIds] = await Promise.all([
+      loadLocalFoods({ baseDir: mainDatabaseDir }),
+      loadMealFixtures(),
+      loadAdditionalIngredientIds()
+    ])
     const foodsById = new Map(foods.map((food) => [food.id, food]))
 
-    expect(foods).toHaveLength(46)
     expect(meals).toHaveLength(31)
 
     const usedIngredientIds = new Set(
@@ -137,7 +157,15 @@ describe('meal coverage database confidence', () => {
     )
     const databaseIds = new Set(foods.map((food) => food.id))
 
-    expect([...databaseIds].sort()).toEqual([...usedIngredientIds].sort())
+    expect(databaseIds.has('fdc:2706337')).toBe(true)
+    expect(databaseIds.size).toBeGreaterThan(additionalIngredientIds.length)
+    expect([...usedIngredientIds].sort()).toEqual(
+      [...additionalIngredientIds].sort()
+    )
+
+    for (const ingredientId of additionalIngredientIds) {
+      expect(databaseIds.has(ingredientId)).toBe(true)
+    }
 
     for (const ingredientId of TRACKED_NEW_INGREDIENT_IDS) {
       expect(databaseIds.has(ingredientId)).toBe(true)

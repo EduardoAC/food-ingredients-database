@@ -1,6 +1,5 @@
 import { buildCommand, numberParser } from '@stricli/core'
-import { createJsonShardedDatabaseAdapter, syncFoodsWithDefaults } from '../../sync'
-import { createDefaultProviderRegistry } from '../../providers'
+import { syncFoods } from '../../syncFoods'
 import type { CliContext } from '../context'
 
 interface SyncRunFlags {
@@ -65,30 +64,27 @@ export const syncRunCommand = buildCommand<SyncRunFlags, [], CliContext>({
     }
   },
   async func(flags) {
-    const registry = createDefaultProviderRegistry()
-    const providerId = flags.provider ?? registry.getDefaultProviderId()
-
-    if (!registry.has(providerId)) {
-      const available = registry.list().map((provider) => provider.id).join(', ') || '<none>'
-      throw new Error(`Unknown provider "${providerId}". Available providers: ${available}`)
-    }
-
-    const dataSource = registry.createAdapter(providerId, {
-      pageLimit: flags.pageLimit
-    })
-    const database = createJsonShardedDatabaseAdapter({
-      baseDir: flags.dataDir,
-      stateFileName: flags.stateFile
-    })
-
-    const result = await syncFoodsWithDefaults(dataSource, database, {
+    const result = await syncFoods({
+      providerId: flags.provider,
+      providerOptions: {
+        pageLimit: flags.pageLimit
+      },
+      databaseOptions: {
+        baseDir: flags.dataDir,
+        stateFileName: flags.stateFile
+      },
       pageSize: flags.pageSize,
       throttleMs: flags.throttleMs,
       logger: this.logger
     })
 
+    const providerLabel =
+      result.runs.length === 1
+        ? result.runs[0].provider
+        : result.runs.map((run) => run.provider).join(', ')
+
     this.logger.log(
-      `[cli] Sync completed for ${result.provider}: imported ${result.totalImported} items (last ID ${result.lastExternalId ?? 'n/a'})`
+      `[cli] Sync completed for ${providerLabel}: imported ${result.totalImported} items`
     )
   }
 })
